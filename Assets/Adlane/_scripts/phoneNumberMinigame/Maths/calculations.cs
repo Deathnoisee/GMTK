@@ -1,30 +1,44 @@
+using System.Globalization;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class calculations : MonoBehaviour
 {
     [SerializeField] private TMP_InputField inputA;
+    [SerializeField] private GameObject AdvancedMaths;
+
+    private static double ParseInput(string input)
+    {
+        return double.Parse(input, CultureInfo.InvariantCulture);
+    }
+
+    private static string FormatOutput(double value)
+    {
+        return value.ToString("0.###############################", CultureInfo.InvariantCulture);
+    }
+
     public void Add()
     {
-        float a = float.Parse(inputA.text);
-        inputA.text = (a + 3).ToString();
+        double a = ParseInput(inputA.text);
+        inputA.text = FormatOutput(a + 3);
     }
 
     public void Subtract()
     {
-        float a = float.Parse(inputA.text);
-        inputA.text = (a - 2).ToString();
+        double a = ParseInput(inputA.text);
+        inputA.text = FormatOutput(a - 2);
     }
     public void Multiply()
     {
-        float a = float.Parse(inputA.text);
-        inputA.text = (a * 3.5f).ToString();
+        double a = ParseInput(inputA.text);
+        inputA.text = FormatOutput(a * 3.5d);
     }
     public void Divide()
     {
-        float a = float.Parse(inputA.text);
+        double a = ParseInput(inputA.text);
         if (a != 0)
         {
-            inputA.text = (a / 7).ToString();
+            inputA.text = FormatOutput(a / 7);
             return;
         }
         else
@@ -35,10 +49,10 @@ public class calculations : MonoBehaviour
     }
     public void Modulus()
     {
-        float a = float.Parse(inputA.text);
+        double a = ParseInput(inputA.text);
         if (a != 0)
         {
-            inputA.text = (a % 5).ToString();
+            inputA.text = FormatOutput(a % 5);
         }
         else
         {
@@ -48,17 +62,27 @@ public class calculations : MonoBehaviour
     }
     public void exponential()
     {
-        float a = float.Parse(inputA.text);
-        inputA.text = (Mathf.Exp(a)).ToString();
+        double a = ParseInput(inputA.text);
+        inputA.text = FormatOutput(System.Math.Exp(a));
     }
     public void SquareRoot()
     {
-        float a = float.Parse(inputA.text);
-        inputA.text = (Mathf.Sqrt(a)).ToString();
+        double a = ParseInput(inputA.text);
+        inputA.text = FormatOutput(System.Math.Sqrt(a));
     }
     public void floor()
     {
-        float a = float.Parse(inputA.text);
-        inputA.text = (Mathf.FloorToInt(a)).ToString();
+        double a = ParseInput(inputA.text);
+        inputA.text = FormatOutput(System.Math.Floor(a));
+    }
+    public void toggleAdvancedMaths()
+    {
+        AdvancedMaths.SetActive(!AdvancedMaths.activeSelf);
+
+        Button button = GetComponent<Button>();
+        if (button != null)
+        {
+            button.interactable = false;
+        }
     }
 }
