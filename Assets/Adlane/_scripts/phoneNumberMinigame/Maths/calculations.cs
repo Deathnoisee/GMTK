@@ -14,7 +14,7 @@ public class calculations : MonoBehaviour
 
     private static string FormatOutput(double value)
     {
-        return value.ToString("0.###############################", CultureInfo.InvariantCulture);
+        return value.ToString("0.##############", CultureInfo.InvariantCulture);
     }
 
     public void Add()
