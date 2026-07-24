@@ -16,9 +16,9 @@ public class GameManager : MonoBehaviour
     }
     public void SwictchGame(Button button)
     {
-        Debug.Log("Switching Game");
-        gameObject.SetActive(true);
-        // button.CurrentGame.SetActive(false);
+        button.GetComponent<SwitchButton>().NextGame.SetActive(true);
+        button.GetComponent<SwitchButton>().CurrentGame.SetActive(false);
+
     }
 
 

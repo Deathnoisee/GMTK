@@ -8,6 +8,7 @@ TagManager:
   - Button
   - Wall
   - Checkbox
+  - Finisher
   layers:
   - Default
   - TransparentFX

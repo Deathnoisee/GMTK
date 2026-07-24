@@ -6,6 +6,11 @@ public class MouseController : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 offset;
 
+
+    public GameObject nextLevel;
+
+
+
     public bool Lab = false;
 
     bool isDead = false;
@@ -38,12 +43,26 @@ public class MouseController : MonoBehaviour
 
     }
 
+    void NextLevel()
+    {
+        Debug.Log("Next Level");
+        Lab = false;
+        nextLevel.SetActive(true);
+        this.gameObject.transform.parent.gameObject.SetActive(false);
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Wall"))
         {
 
             Die();
+        }
+        if (collision.CompareTag("Finisher"))
+        {
+
+            NextLevel();
+            Debug.Log("Finished");
         }
     }
     void HandleMouseMovement()
