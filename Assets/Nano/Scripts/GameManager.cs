@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
         {
             Vector3 realMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-
             Collider2D hit = Physics2D.OverlapPoint(realMousePos);
             Debug.Log("Hit object: " + (hit != null ? hit.name : "none"));
 
