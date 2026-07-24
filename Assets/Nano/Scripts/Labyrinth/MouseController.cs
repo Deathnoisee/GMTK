@@ -36,10 +36,6 @@ public class MouseController : MonoBehaviour
             HandleMouseMovement();
         }
 
-
-
-
-        OnClick();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -57,36 +53,8 @@ public class MouseController : MonoBehaviour
 
         transform.position = mousePosition + offset;
     }
-    void OnClick()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 realMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 
-            Collider2D hit = Physics2D.OverlapPoint(realMousePos);
-            Debug.Log("Hit object: " + (hit != null ? hit.name : "none"));
-
-            if (hit != null && hit.CompareTag("Button"))
-            {
-                Debug.Log("Hit button");
-                Button button = hit.GetComponent<Button>();
-                button?.onClick.Invoke();
-            }
-        }
-
-    }
-
-    void StartLabyrinth()
-    {
-        isDead = false;
-        transform.position = startPosition;
-
-        // Recalculate offset so current cursor position becomes the new reference point
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-        offset = startPosition - mousePosition;
-    }
     void Die()
     {
         transform.position = startPosition;

@@ -609,7 +609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &711046454
 SpriteRenderer:
   serializedVersion: 3
@@ -1001,7 +1001,6 @@ Transform:
   - {fileID: 258171400}
   - {fileID: 333583003}
   - {fileID: 8227498564566871689}
-  - {fileID: 8586229863066907220}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &933065882
@@ -1866,11 +1865,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 911179527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2119603763 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3977239012070918219, guid: 82566a22233c11b4b91dd1f83d3e0676, type: 3}
-  m_PrefabInstance: {fileID: 7989629080261958838}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7989629080261958838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1928,6 +1922,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82566a22233c11b4b91dd1f83d3e0676, type: 3}
+--- !u!114 &7989629080261958839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1003575536667736324, guid: 82566a22233c11b4b91dd1f83d3e0676, type: 3}
+  m_PrefabInstance: {fileID: 7989629080261958838}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17da7a24f10443949885df6c1995fdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1001 &8227498564566871688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1951,14 +1956,14 @@ PrefabInstance:
     - target: {fileID: 7381452999994933362, guid: cb4db54c0302c3043ae008b91000a127, type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2119603763}
+      objectReference: {fileID: 7989629080261958839}
     - target: {fileID: 7381452999994933362, guid: cb4db54c0302c3043ae008b91000a127, type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7381452999994933362, guid: cb4db54c0302c3043ae008b91000a127, type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: SwictchGame
       objectReference: {fileID: 0}
     - target: {fileID: 7381452999994933362, guid: cb4db54c0302c3043ae008b91000a127, type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2032,15 +2037,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 911179527}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4074043208644768606, guid: 9dc9b4b6ea593244d8f47559abcfe216, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -11.24
       objectReference: {fileID: 0}
     - target: {fileID: 4074043208644768606, guid: 9dc9b4b6ea593244d8f47559abcfe216, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.27
       objectReference: {fileID: 0}
     - target: {fileID: 4074043208644768606, guid: 9dc9b4b6ea593244d8f47559abcfe216, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2083,17 +2088,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dc9b4b6ea593244d8f47559abcfe216, type: 3}
---- !u!4 &8586229863066907220 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4074043208644768606, guid: 9dc9b4b6ea593244d8f47559abcfe216, type: 3}
-  m_PrefabInstance: {fileID: 8586229863066907219}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1009553107}
   - {fileID: 1026570838}
+  - {fileID: 8586229863066907219}
   - {fileID: 911179527}
   - {fileID: 420499604}
   - {fileID: 7989629080261958838}
