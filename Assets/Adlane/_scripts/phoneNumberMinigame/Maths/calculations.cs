@@ -78,11 +78,5 @@ public class calculations : MonoBehaviour
     public void toggleAdvancedMaths()
     {
         AdvancedMaths.SetActive(!AdvancedMaths.activeSelf);
-
-        Button button = GetComponent<Button>();
-        if (button != null)
-        {
-            button.interactable = false;
-        }
     }
 }
