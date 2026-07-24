@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
+<<<<<<< HEAD
   - Letter
+=======
+  - Wall
+  - Button
+>>>>>>> origin/Nano
   layers:
   - Default
   - TransparentFX

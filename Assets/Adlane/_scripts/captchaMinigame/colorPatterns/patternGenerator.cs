@@ -15,6 +15,7 @@ public class patternGenerator : MonoBehaviour
     private int currentRound = 0;
     private int currentInputIndex = 0;
     public bool canClick = false;
+    
     private void Start()
     {
         StartPattern();
