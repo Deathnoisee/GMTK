@@ -47,6 +47,17 @@ public class WordleManager : MonoBehaviour
             }
             else if (c == '\n' || c == '\r')
             {
+                if (waitingForNewGuess)
+                {
+                    waitingForNewGuess = false;
+                    for (int i = 0; i < wordLength; i++)
+                    {
+                        if (!lockedLetters[i])
+                        {
+                            tiles[i].Clear();
+                        }
+                    }
+                }
                 SubmitGuess();
             }
             else if (char.IsLetter(c))
