@@ -26,6 +26,14 @@ public class crankManager : MonoBehaviour
     {
         if (crankedObject != null) loadBarBaseScale = crankedObject.transform.localScale;
     }
+    void Update()
+    {
+        if (crankedObject == null) return;
+        if (currentCrankCount < crankCount)
+        {
+            crankedObject.transform.localScale += new Vector3(0f, -0.1f, 0f) * Time.deltaTime;
+        }
+    }
 
     public void crank(GameObject crankSprite)
     {
