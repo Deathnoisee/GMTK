@@ -52,13 +52,12 @@ public class LettersManager : MonoBehaviour
 
     private Vector3 GetRandomPointInBox(BoxCollider2D box)
     {
-        Vector2 localCenter = box.offset;
-        Vector2 halfSize = box.size * 0.5f;
 
-        float x = Random.Range(-halfSize.x, halfSize.x);
-        float y = Random.Range(-halfSize.y, halfSize.y);
 
-        Vector3 localPoint = new Vector3(localCenter.x + x, localCenter.y + y, 0f);
+        float x = Random.Range(box.bounds.min.x, box.bounds.max.x);
+        float y = Random.Range(box.bounds.min.y, box.bounds.max.y);
+
+        Vector3 localPoint = new Vector2(x, y);
         return box.transform.TransformPoint(localPoint);
     }
 

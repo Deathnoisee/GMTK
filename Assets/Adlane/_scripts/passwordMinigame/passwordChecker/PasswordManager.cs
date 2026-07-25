@@ -5,7 +5,7 @@ using UnityEngine;
 public class PasswordManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private TMP_InputField passwordInput;
+    [SerializeField] private TMP_Text passwordInput;
     [SerializeField] private TMP_Text passwordStrengthText;
     [SerializeField] private Color incorrectColor = Color.red;
     [SerializeField] private Color correctColor = Color.green;
