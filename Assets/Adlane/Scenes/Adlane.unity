@@ -708,6 +708,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputField
   displayText: {fileID: 709062370}
+  inputText: 
+  isLevelInput: 1
 --- !u!1 &72860331
 GameObject:
   m_ObjectHideFlags: 0
@@ -5771,6 +5773,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputField
   displayText: {fileID: 1539619561}
+  inputText: 
+  isLevelInput: 1
 --- !u!4 &831483883
 Transform:
   m_ObjectHideFlags: 0
@@ -9065,6 +9069,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17da7a24f10443949885df6c1995fdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  timeRemaining: 300
+  inMinigame: 0
+  gameOver: 0
 --- !u!4 &1340940820
 Transform:
   m_ObjectHideFlags: 0
