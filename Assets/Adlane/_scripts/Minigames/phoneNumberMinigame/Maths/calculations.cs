@@ -30,8 +30,8 @@ public class calculations : MonoBehaviour
         }
     }
 
-    public void Add() => Value += 3;
-    public void Subtract() => Value -= 2;
-    public void Multiply() => Value *= 3;
-    public void Divide() => Value = Value == 0 ? 0 : Value / 2;
+    public void Add() => Value = Mathf.Min(Value + 3, 999);
+    public void Subtract() => Value = Mathf.Max(Value - 2, 000);
+    public void Multiply() => Value = Mathf.Min(Value * 3, 999);
+    public void Divide() => Value = Value == 0 ? 0 : Mathf.Max(Value / 2, 000);
 }
