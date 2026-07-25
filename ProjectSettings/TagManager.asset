@@ -9,6 +9,8 @@ TagManager:
   - Wall
   - Checkbox
   - Finisher
+  - Surfer
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Wall
   - 
   - 
   - 

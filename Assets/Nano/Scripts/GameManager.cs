@@ -1,10 +1,39 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public float timeRemaining = 300f; // 5:00 in seconds
+    private bool timerRunning = true;
 
+
+    public bool inMinigame = false;
+
+    public static GameManager instance;
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+    public bool gameOver = false;
+
+    public void OnTimerEnd()
+    {
+        Debug.Log("Timer has ended!");
+        gameOver = true;
+        // Add any additional logic you want to execute when the timer ends
+    }
     void Start()
     {
 
@@ -17,7 +46,11 @@ public class GameManager : MonoBehaviour
     public void SwictchGame(Button button)
     {
         button.GetComponent<SwitchButton>().NextGame.SetActive(true);
-        button.GetComponent<SwitchButton>().CurrentGame.SetActive(false);
+        if (button.GetComponent<SwitchButton>().CurrentGame != null)
+        {
+            button.GetComponent<SwitchButton>().CurrentGame.SetActive(false);
+        }
+
 
     }
 
@@ -41,10 +74,31 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void RestartGame()
+    {
+        // Reset the game state here
+        timeRemaining = 300f; // Reset timer to 5:00
+        timerRunning = true;
+        gameOver = false;
 
+        // Add any additional logic to reset the game state, such as resetting player health, score, etc.
+    }
     // Update is called once per frame
     void Update()
     {
+
+        if (!timerRunning) return;
+
+        timeRemaining -= Time.deltaTime;
+
+        if (timeRemaining <= 0)
+        {
+            timeRemaining = 0;
+            timerRunning = false;
+            OnTimerEnd();
+        }
+
+        CanvasManager.instance.UpdateTimerUI(timeRemaining);
         OnClick();
     }
 }

@@ -84,5 +84,30 @@ PrefabInstance:
     - {fileID: 7381452999994933362, guid: cb4db54c0302c3043ae008b91000a127, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3243356454427634687, guid: cb4db54c0302c3043ae008b91000a127, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -378200104533788422}
   m_SourcePrefab: {fileID: 100100000, guid: cb4db54c0302c3043ae008b91000a127, type: 3}
+--- !u!1 &7733265661735212593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3243356454427634687, guid: cb4db54c0302c3043ae008b91000a127, type: 3}
+  m_PrefabInstance: {fileID: 5066729520381640142}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-378200104533788422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733265661735212593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9b0c8407e9e954aa0a811d2964dc8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwitchButton
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+  CurrentGame: {fileID: 0}
+  NextGame: {fileID: 0}
