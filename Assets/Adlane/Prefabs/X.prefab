@@ -111,7 +111,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: X
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a7607958121f97346bf5042523d50fbb, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 6330227450137501343}
   m_maskType: 0
 --- !u!50 &5002463534354646912
@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5848bf7100e67f4c965814a1e7657f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Death
+  sentenceManager: {fileID: 0}
 --- !u!60 &1501031137977570308
 PolygonCollider2D:
   m_ObjectHideFlags: 0

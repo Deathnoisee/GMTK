@@ -69,7 +69,7 @@ public class patternGenerator : MonoBehaviour
 
         if (isInput)
         {
-            halfTime *= 0.15f; // Reduce the flash duration for input flashes
+            halfTime *= 0.05f; // Reduce the flash duration for input flashes
         }
         while (elapsed < halfTime)
         {

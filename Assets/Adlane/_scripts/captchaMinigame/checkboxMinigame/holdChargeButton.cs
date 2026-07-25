@@ -76,7 +76,7 @@ public class HoldChargeButton : MonoBehaviour
 
     void OnMouseDown()
     {
-        if(sentenceManager.totalTries <= 0)
+        if (sentenceManager.totalTries <= 0)
         {
             sentenceManager.Lose();
             return;
@@ -89,6 +89,10 @@ public class HoldChargeButton : MonoBehaviour
     {
         isHolding = false;
         if (throwable != null) return;
+        if (sentenceManager.totalTries <= 0)
+        {
+            return;
+        }
         if (chargeBar != null)
         {
             chargeBar.localScale = originalBarScale;
