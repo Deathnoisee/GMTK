@@ -7,6 +7,7 @@ public class InputField : MonoBehaviour
     public string inputText = "";
 
 
+
     public bool isLevelInput = true; // Flag to check if the level is in input mode
 
     bool isCompleted = false; // Flag to check if the level is completed
@@ -36,11 +37,11 @@ public class InputField : MonoBehaviour
                     inputText += c;
                 }
             }
-
+            displayText.text = inputText + "_"; // fake cursor blink
         }
 
 
-        displayText.text = inputText + "_"; // fake cursor blink
+
     }
 
     void Submit()

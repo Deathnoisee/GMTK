@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17da7a24f10443949885df6c1995fdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  timeRemaining: 600
+  inMinigame: 0
+  gameOver: 0
