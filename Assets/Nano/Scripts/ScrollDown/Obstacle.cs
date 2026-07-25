@@ -11,7 +11,7 @@ public class Obstacle : MonoBehaviour
 
     void Update()
     {
-        if (this.transform.position.y > 6f)
+        if (this.transform.position.y >= 3f)
         {
             Destroy(this.gameObject);
         }

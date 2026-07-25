@@ -1,17 +1,23 @@
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class CanvasManager : MonoBehaviour
 {
-
     public static CanvasManager instance;
     public GameObject heart;
-
-
 
     public GameObject HearthGroup;
 
     public TextMeshProUGUI timerText;
+
+    [Header("Used Letter Tracking (Canvas UI)")]
+    public GameObject usedLettersGroup;     // single GameObject with Horizontal/Grid Layout Group
+    public GameObject absentTilePrefab;     // gray tile prefab, with a TextMeshProUGUI child
+    public GameObject presentTilePrefab;    // yellow tile prefab, with a TextMeshProUGUI child
+
+    private HashSet<char> shownAbsentLetters = new HashSet<char>();
+    private HashSet<char> shownPresentLetters = new HashSet<char>();
 
     public void UpdateheartUI()
     {
@@ -29,13 +35,11 @@ public class CanvasManager : MonoBehaviour
 
     public void GameOverPanel()
     {
-        // Implement your game over panel logic here
         Debug.Log("Game Over! Show Game Over Panel.");
     }
 
     public void RestartGame()
     {
-        // Implement your restart game logic here
         Debug.Log("Restarting Game...");
     }
 
@@ -48,8 +52,6 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
-
-
     public void UpdateTimerUI(float time)
     {
         if (time < 0) time = 0;
@@ -59,7 +61,6 @@ public class CanvasManager : MonoBehaviour
 
         timerText.text = string.Format("{0}:{1:00}", minutes, seconds);
     }
-
 
     public void SpawnHeart(int health)
     {
@@ -71,10 +72,44 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
+    // ---- Used letter tracking (single group, different prefab per state) ----
 
+    public void AddAbsentLetter(char letter)
+    {
+        if (shownAbsentLetters.Contains(letter)) return;
+        shownAbsentLetters.Add(letter);
+        SpawnLetterTile(letter, absentTilePrefab);
+    }
 
+    public void AddPresentLetter(char letter)
+    {
+        if (shownPresentLetters.Contains(letter)) return;
+        shownPresentLetters.Add(letter);
+        SpawnLetterTile(letter, presentTilePrefab);
+    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void SpawnLetterTile(char letter, GameObject prefab)
+    {
+        GameObject tile = Instantiate(prefab, usedLettersGroup.transform);
+        TextMeshProUGUI text = tile.GetComponentInChildren<TextMeshProUGUI>();
+        if (text != null)
+        {
+            text.text = letter.ToString();
+        }
+        tile.SetActive(true);
+    }
+
+    public void ClearUsedLetters()
+    {
+        shownAbsentLetters.Clear();
+        shownPresentLetters.Clear();
+
+        for (int i = usedLettersGroup.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(usedLettersGroup.transform.GetChild(i).gameObject);
+        }
+    }
+
     void Start()
     {
         if (instance == null)
@@ -87,7 +122,6 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
 

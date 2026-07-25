@@ -15,7 +15,7 @@ public class InputField : MonoBehaviour
     void Start()
     {
         displayText = GetComponentInChildren<TextMeshPro>();
-        displayText.text = "_"; // initial fake cursor
+
     }
     void Update()
     {

@@ -38,6 +38,11 @@ public class Panel : MonoBehaviour
         PlayPopSequence();
     }
 
+    private void OnDisable()
+    {
+        PlayPopOutSequence();
+    }
+
     public void PlayPopSequence()
     {
         // Reset everything to zero first
@@ -92,7 +97,9 @@ public class Panel : MonoBehaviour
         seq.OnComplete(() =>
         {
             onComplete?.Invoke();
+            parent.SetActive(false);
             gameObject.SetActive(false);
+            
         });
     }
 }

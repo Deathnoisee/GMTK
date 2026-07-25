@@ -3,22 +3,27 @@ using UnityEngine;
 public class SurfController : MonoBehaviour
 {
     Rigidbody2D rb;
-
     bool isDead = false;
-
     public float completionCount = 0;
-
     public float completionTarget = 10;
-
+    public float completionDuration = 60f; // total seconds to reach completionTarget
     public bool started = false;
+    public bool completed = false;
     private bool spawnedHeart;
-
-
-
-
     public int health = 3;
-
     public float speed = 5f;
+
+    void Update()
+    {
+        if (isDead || completed || !started)
+        {
+            return;
+        }
+
+        // Increase completion at a constant rate so it reaches completionTarget after completionDuration seconds
+        float ratePerSecond = completionTarget / completionDuration;
+        AddCompletion(ratePerSecond * Time.deltaTime);
+    }
 
     void FixedUpdate()
     {
@@ -27,7 +32,6 @@ public class SurfController : MonoBehaviour
             return;
         }
         Move();
-
     }
 
     void Move()
@@ -44,34 +48,31 @@ public class SurfController : MonoBehaviour
                 spawnedHeart = true;
             }
         }
-
     }
 
     public void AddCompletion(float amount)
     {
         completionCount += amount;
+
         if (completionCount >= completionTarget)
         {
-            Debug.Log("Level Complete!");
-
-            // You can add any additional logic here for when the level is complete
+            completionCount = completionTarget;
+            Win();
         }
     }
 
     public void Win()
     {
+        if (completed) return; // avoid running this more than once
 
-        if (completionCount >= completionTarget)
-        {
-            Debug.Log("Level Complete!");
-            CanvasManager.instance.DesactivateHearts();
-            // You can add any additional logic here for when the level is complete
-        }
-
+        completed = true;
+        Debug.Log("Level Complete!");
+        CanvasManager.instance.DesactivateHearts();
+        // You can add any additional logic here for when the level is complete
     }
+
     public void Die()
     {
-
         health--;
         CanvasManager.instance.UpdateheartUI();
         if (health <= 0)
@@ -79,7 +80,6 @@ public class SurfController : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             isDead = true;
             Debug.Log("Game Over");
-
         }
     }
 
@@ -91,9 +91,9 @@ public class SurfController : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 }

@@ -1,5 +1,3 @@
-using System.Diagnostics.Tracing;
-using Unity.AppUI.UI;
 using UnityEngine;
 
 public class WordleManager : MonoBehaviour
@@ -27,7 +25,6 @@ public class WordleManager : MonoBehaviour
 
     public InputField emailInput;
 
-
     public Panel panel;
 
     private WordlTile[] currentTiles;
@@ -44,7 +41,6 @@ public class WordleManager : MonoBehaviour
         }
 
         StartStage(0);
-
     }
 
     void StartStage(int stageIndex)
@@ -52,6 +48,8 @@ public class WordleManager : MonoBehaviour
         CanvasManager.instance.DesactivateHearts();
         Debug.Log("Destroyed hearts");
         CanvasManager.instance.SpawnHeart(attemptsPerStage);
+        CanvasManager.instance.ClearUsedLetters();
+
         currentStageIndex = stageIndex;
         currentAttempt = 0;
         waitingForNewGuess = false;
@@ -196,7 +194,14 @@ public class WordleManager : MonoBehaviour
             {
                 finalResult = finalResult + "@GMTK.com";
                 emailInput.inputText = finalResult;
+                emailInput.displayText.text = finalResult;
+                emailInput.displayText.fontSize = 8;
+                emailInput.displayText.alpha = 1f;
+
                 Debug.Log("All stages complete! Final result: " + finalResult);
+                CanvasManager.instance.DesactivateHearts();
+                CanvasManager.instance.ClearUsedLetters();
+                panel.PlayPopOutSequence();
                 gameOver = true;
             }
             else
@@ -220,13 +225,13 @@ public class WordleManager : MonoBehaviour
 
     void EvaluateGuess(string guess)
     {
-
         bool[] targetUsed = new bool[currentWordLength];
 
         for (int i = 0; i < currentWordLength; i++)
         {
             if (guess[i] == targetWord[i])
             {
+                
                 currentTiles[i].SetState(WordlTile.TileState.Correct);
                 lockedLetters[i] = true;
                 currentTiles[i].rightLetter = true;
@@ -250,11 +255,19 @@ public class WordleManager : MonoBehaviour
                     break;
                 }
             }
+
             CanvasManager.instance.UpdateheartUI();
+
             if (found)
+            {
                 currentTiles[i].SetState(WordlTile.TileState.Present);
+                CanvasManager.instance.AddPresentLetter(guess[i]);
+            }
             else
+            {
                 currentTiles[i].SetState(WordlTile.TileState.Absent);
+                CanvasManager.instance.AddAbsentLetter(guess[i]);
+            }
         }
     }
 }
