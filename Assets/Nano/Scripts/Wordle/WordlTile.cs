@@ -10,12 +10,15 @@ public class WordlTile : MonoBehaviour
 
     public enum TileState { Empty, Correct, Present, Absent }
 
-
-    void Start()
+    void Awake()
     {
         letterText = GetComponentInChildren<TextMeshPro>();
         background = GetComponent<SpriteRenderer>();
         Clear();
+    }
+    void Start()
+    {
+
     }
     public void SetLetter(char letter)
     {

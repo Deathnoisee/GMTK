@@ -1,37 +1,79 @@
+using System.Diagnostics.Tracing;
+using Unity.AppUI.UI;
 using UnityEngine;
 
 public class WordleManager : MonoBehaviour
 {
-    public WordlTile[] tiles;
-    public int wordLength = 5;
+    [System.Serializable]
+    public class WordStage
+    {
+        public Transform wordParent; // e.g. Word1, Word2, Word3 GameObject
+        public string[] wordList;
+        [HideInInspector] public WordlTile[] tiles;
+        [HideInInspector] public int wordLength;
+    }
 
-    public string[] wordList;
+    public WordStage[] stages; // exactly 3 entries: Word1, Word2, Word3
+    public int attemptsPerStage = 5;
+
     public string targetWord;
+    public string finalResult = "";
 
-    public int attempts = 6;
-
-
-    private bool waitingForNewGuess = false;
-
-    [SerializeField]
+    private int currentStageIndex = 0;
     private int currentAttempt = 0;
     private bool[] lockedLetters;
+    private bool waitingForNewGuess = false;
     private bool gameOver = false;
+
+    public InputField emailInput;
+
+
+    public Panel panel;
+
+    private WordlTile[] currentTiles;
+    private int currentWordLength;
 
     void Start()
     {
-        tiles = GetComponentsInChildren<WordlTile>();
+        // Cache each stage's tiles from its own parent, and deactivate all parents initially
+        foreach (WordStage stage in stages)
+        {
+            stage.tiles = stage.wordParent.GetComponentsInChildren<WordlTile>(true);
+            stage.wordLength = stage.tiles.Length;
+            stage.wordParent.gameObject.SetActive(false);
+        }
 
-        lockedLetters = new bool[wordLength];
+        StartStage(0);
 
-        PickRandomWord();
-
-        Debug.Log("Target Word: " + targetWord);
     }
 
-    void PickRandomWord()
+    void StartStage(int stageIndex)
     {
-        targetWord = wordList[Random.Range(0, wordList.Length)].ToUpper();
+        CanvasManager.instance.DesactivateHearts();
+        Debug.Log("Destroyed hearts");
+        CanvasManager.instance.SpawnHeart(attemptsPerStage);
+        currentStageIndex = stageIndex;
+        currentAttempt = 0;
+        waitingForNewGuess = false;
+
+        WordStage stage = stages[currentStageIndex];
+        currentTiles = stage.tiles;
+        currentWordLength = stage.wordLength;
+        lockedLetters = new bool[currentWordLength];
+
+        targetWord = stage.wordList[Random.Range(0, stage.wordList.Length)].ToUpper();
+        Debug.Log("Stage " + (currentStageIndex + 1) + " Target Word: " + targetWord);
+
+        // Deactivate all word parents, activate only the current one
+        foreach (WordStage s in stages)
+        {
+            s.wordParent.gameObject.SetActive(s == stage);
+        }
+
+        foreach (WordlTile tile in currentTiles)
+        {
+            tile.Clear();
+        }
     }
 
     void Update()
@@ -50,11 +92,11 @@ public class WordleManager : MonoBehaviour
                 if (waitingForNewGuess)
                 {
                     waitingForNewGuess = false;
-                    for (int i = 0; i < wordLength; i++)
+                    for (int i = 0; i < currentWordLength; i++)
                     {
                         if (!lockedLetters[i])
                         {
-                            tiles[i].Clear();
+                            currentTiles[i].Clear();
                         }
                     }
                 }
@@ -69,27 +111,27 @@ public class WordleManager : MonoBehaviour
 
     void AddLetter(char letter)
     {
-
         if (waitingForNewGuess)
         {
             waitingForNewGuess = false;
 
-            for (int i = 0; i < wordLength; i++)
+            for (int i = 0; i < currentWordLength; i++)
             {
                 if (!lockedLetters[i])
                 {
-                    tiles[i].Clear();
+                    currentTiles[i].Clear();
                 }
             }
         }
-        for (int i = 0; i < wordLength; i++)
+
+        for (int i = 0; i < currentWordLength; i++)
         {
             if (lockedLetters[i])
                 continue;
 
-            if (string.IsNullOrEmpty(tiles[i].letterText.text))
+            if (string.IsNullOrEmpty(currentTiles[i].letterText.text))
             {
-                tiles[i].SetLetter(letter);
+                currentTiles[i].SetLetter(letter);
                 return;
             }
         }
@@ -97,14 +139,14 @@ public class WordleManager : MonoBehaviour
 
     void Backspace()
     {
-        for (int i = wordLength - 1; i >= 0; i--)
+        for (int i = currentWordLength - 1; i >= 0; i--)
         {
             if (lockedLetters[i])
                 continue;
 
-            if (!string.IsNullOrEmpty(tiles[i].letterText.text))
+            if (!string.IsNullOrEmpty(currentTiles[i].letterText.text))
             {
-                tiles[i].Clear();
+                currentTiles[i].Clear();
                 return;
             }
         }
@@ -114,12 +156,12 @@ public class WordleManager : MonoBehaviour
     {
         string guess = "";
 
-        for (int i = 0; i < wordLength; i++)
+        for (int i = 0; i < currentWordLength; i++)
         {
-            if (string.IsNullOrEmpty(tiles[i].letterText.text))
+            if (string.IsNullOrEmpty(currentTiles[i].letterText.text))
                 return "";
 
-            guess += tiles[i].letterText.text.ToUpper();
+            guess += currentTiles[i].letterText.text.ToUpper();
         }
 
         return guess;
@@ -127,56 +169,79 @@ public class WordleManager : MonoBehaviour
 
     void SubmitGuess()
     {
-        if (currentAttempt >= attempts)
+        if (currentAttempt >= attemptsPerStage)
         {
-            Debug.Log("No more attempts left!");
+            Debug.Log("No more attempts left on this stage!");
             gameOver = true;
             return;
         }
+
         string guess = GetCurrentGuess();
 
-        if (guess.Length != wordLength)
+        if (guess.Length != currentWordLength)
             return;
 
         EvaluateGuess(guess);
 
         if (guess == targetWord)
         {
-            Debug.Log("You win!");
+            Debug.Log("Stage " + (currentStageIndex + 1) + " solved!");
+
+            // Build "word1_word2_word3" format
+            finalResult = string.IsNullOrEmpty(finalResult)
+                ? targetWord.ToLower()
+                : finalResult + "_" + targetWord.ToLower();
+
+            if (currentStageIndex >= stages.Length - 1)
+            {
+                finalResult = finalResult + "@GMTK.com";
+                emailInput.inputText = finalResult;
+                Debug.Log("All stages complete! Final result: " + finalResult);
+                gameOver = true;
+            }
+            else
+            {
+                StartStage(currentStageIndex + 1);
+            }
+            return;
+        }
+
+        currentAttempt++;
+
+        if (currentAttempt >= attemptsPerStage)
+        {
+            Debug.Log("No more attempts left! Word was: " + targetWord);
             gameOver = true;
             return;
         }
-        currentAttempt++;
 
         waitingForNewGuess = true;
     }
 
     void EvaluateGuess(string guess)
     {
-        bool[] targetUsed = new bool[wordLength];
 
-        // First pass: Correct letters
-        for (int i = 0; i < wordLength; i++)
+        bool[] targetUsed = new bool[currentWordLength];
+
+        for (int i = 0; i < currentWordLength; i++)
         {
             if (guess[i] == targetWord[i])
             {
-                tiles[i].SetState(WordlTile.TileState.Correct);
+                currentTiles[i].SetState(WordlTile.TileState.Correct);
                 lockedLetters[i] = true;
-                tiles[i].rightLetter = true;
+                currentTiles[i].rightLetter = true;
                 targetUsed[i] = true;
             }
         }
 
-        // Second pass: Present / Absent
-        for (int i = 0; i < wordLength; i++)
+        for (int i = 0; i < currentWordLength; i++)
         {
-            // Skip already-correct letters
             if (guess[i] == targetWord[i])
                 continue;
 
             bool found = false;
 
-            for (int j = 0; j < wordLength; j++)
+            for (int j = 0; j < currentWordLength; j++)
             {
                 if (!targetUsed[j] && guess[i] == targetWord[j])
                 {
@@ -185,11 +250,11 @@ public class WordleManager : MonoBehaviour
                     break;
                 }
             }
-
+            CanvasManager.instance.UpdateheartUI();
             if (found)
-                tiles[i].SetState(WordlTile.TileState.Present);
+                currentTiles[i].SetState(WordlTile.TileState.Present);
             else
-                tiles[i].SetState(WordlTile.TileState.Absent);
+                currentTiles[i].SetState(WordlTile.TileState.Absent);
         }
     }
 }

@@ -6,6 +6,13 @@ public class SurfController : MonoBehaviour
 
     bool isDead = false;
 
+    public float completionCount = 0;
+
+    public float completionTarget = 10;
+
+    public bool started = false;
+    private bool spawnedHeart;
+
 
 
 
@@ -19,17 +26,54 @@ public class SurfController : MonoBehaviour
         {
             return;
         }
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        Move();
 
-
-        Vector2 movement = new Vector2(moveHorizontal, 0f);
-        rb.linearVelocity = movement * speed;
     }
 
+    void Move()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        Vector2 movement = new Vector2(moveHorizontal, 0f);
+        rb.linearVelocity = movement * speed;
+        if (moveHorizontal != 0)
+        {
+            started = true;
+            if (!spawnedHeart)
+            {
+                CanvasManager.instance.SpawnHeart(health);
+                spawnedHeart = true;
+            }
+        }
 
+    }
+
+    public void AddCompletion(float amount)
+    {
+        completionCount += amount;
+        if (completionCount >= completionTarget)
+        {
+            Debug.Log("Level Complete!");
+
+            // You can add any additional logic here for when the level is complete
+        }
+    }
+
+    public void Win()
+    {
+
+        if (completionCount >= completionTarget)
+        {
+            Debug.Log("Level Complete!");
+            CanvasManager.instance.DesactivateHearts();
+            // You can add any additional logic here for when the level is complete
+        }
+
+    }
     public void Die()
     {
+
         health--;
+        CanvasManager.instance.UpdateheartUI();
         if (health <= 0)
         {
             rb.linearVelocity = Vector2.zero;
@@ -50,5 +94,6 @@ public class SurfController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 }
