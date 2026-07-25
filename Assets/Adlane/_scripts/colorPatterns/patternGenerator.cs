@@ -15,7 +15,7 @@ public class patternGenerator : MonoBehaviour
     private int currentRound = 0;
     private int currentInputIndex = 0;
     public bool canClick = false;
-    
+
     private void Start()
     {
         StartPattern();
@@ -59,13 +59,18 @@ public class patternGenerator : MonoBehaviour
         canClick = true;
     }
 
-    private IEnumerator FlashSegment(int index)
+    private IEnumerator FlashSegment(int index, bool isInput = false)
     {
         Color originalColor = ringSegments[index].color;
 
         float halfTime = flashDuration * 0.5f;
 
         float elapsed = 0f;
+
+        if (isInput)
+        {
+            halfTime *= 0.15f; // Reduce the flash duration for input flashes
+        }
         while (elapsed < halfTime)
         {
             elapsed += Time.deltaTime;
@@ -105,5 +110,23 @@ public class patternGenerator : MonoBehaviour
             NextPattern();
         }
 
+    }
+    public void ResetGame()
+    {
+        currentRound = 0;
+        patternSequence.Clear();
+        canClick = false;
+        StartPattern();
+    }
+    public void Click(int segmentIndex)
+    {
+        if (!canClick) return;
+        StartCoroutine(ClickAndCheck(segmentIndex));
+    }
+
+    private IEnumerator ClickAndCheck(int segmentIndex)
+    {
+        yield return FlashSegment(segmentIndex, isInput: true);
+        CheckInput(segmentIndex);
     }
 }
