@@ -21,11 +21,6 @@ public class LettersManager : MonoBehaviour
     private List<GameObject> aliveLetters = new List<GameObject>();
     private Coroutine spawnRoutine;
 
-    private void Start()
-    {
-        StartSpawning();
-    }
-
     public void StartSpawning()
     {
         if (spawnRoutine != null)

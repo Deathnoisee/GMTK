@@ -5,7 +5,8 @@ namespace SmallHedge.SoundManager
 {
     public enum SoundType
     {
-
+        shoot,
+        click,
         Music,
 
 

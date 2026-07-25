@@ -62,7 +62,7 @@ public class numManager : MonoBehaviour
         }
     }
 
-    private void Win()
+    public void Win()
     {
         Debug.Log("Phone number complete!");
 

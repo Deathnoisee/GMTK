@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using System.Collections;
 using UnityEngine;
 
 [Serializable]
@@ -17,9 +18,14 @@ public class UsernameManager : MonoBehaviour
     [SerializeField] private TMP_Text promptText;
     [SerializeField] private TMP_Text collectedText;
     [SerializeField] private TMP_Text heartsText;
+    [SerializeField] private TMP_Text TutorialText;
+    [SerializeField] private float tutorialDisplayTime = 2f;
+    [SerializeField] private float fadeSpeed = 2f;
 
     [Header("Rounds")]
     [SerializeField] private LetterRound[] rounds;
+    [SerializeField] private LettersManager lettersManager;
+
 
     [Header("Health")]
     [SerializeField] private int maxHearts = 3;
@@ -34,20 +40,53 @@ public class UsernameManager : MonoBehaviour
     private int heartsLeft;
 
     private string collectedLetters = "";
-
-    private void Start()
-    {
-        BeginGame();
-    }
-
+    private bool isTutorialActive = false;
+    // Button to start the game, 3yetlha mena nano
     public void BeginGame()
     {
         heartsLeft = maxHearts;
         BuildRoundOrder();
+
         collectedLetters = "";
         BeginRound(0);
         UpdateHeartsText();
     }
+
+
+    private IEnumerator showTutorial()
+    {
+        if (TutorialText == null)
+            yield break;
+
+        TutorialText.gameObject.SetActive(true);
+
+        Color c = TutorialText.color;
+        c.a = 0f;
+        TutorialText.color = c;
+
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * fadeSpeed;
+            c.a = Mathf.Lerp(0f, 1f, t);
+            TutorialText.color = c;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(tutorialDisplayTime);
+
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * fadeSpeed;
+            c.a = Mathf.Lerp(1f, 0f, t);
+            TutorialText.color = c;
+            yield return null;
+        }
+
+        TutorialText.gameObject.SetActive(false);
+    }
+
 
     private void BuildRoundOrder()
     {
@@ -78,6 +117,29 @@ public class UsernameManager : MonoBehaviour
         }
 
         currentRoundIndex = index;
+
+        if (index == 0)
+        {
+            StartCoroutine(BeginRoundAfterTutorial(index));
+        }
+        else
+        {
+            SetupRound(index);
+        }
+    }
+    private IEnumerator BeginRoundAfterTutorial(int index)
+    {
+        isTutorialActive = true;
+        yield return StartCoroutine(showTutorial());
+        isTutorialActive = false;
+
+        SetupRound(index);
+
+        if (lettersManager != null)
+            lettersManager.StartSpawning();
+    }
+    private void SetupRound(int index)
+    {
         allowedLetters.Clear();
 
         LetterRound round = rounds[roundOrder[currentRoundIndex]];
@@ -97,9 +159,10 @@ public class UsernameManager : MonoBehaviour
 
         UpdateHeartsText();
     }
-
     public bool TryCollectLetter(string value)
     {
+        if (isTutorialActive)
+            return false;
         if (string.IsNullOrEmpty(value))
             return false;
 
@@ -205,12 +268,32 @@ public class UsernameManager : MonoBehaviour
 
     private void WinGame()
     {
+        if (lettersManager != null)
+            lettersManager.StopSpawning();
+
         Debug.Log("Username minigame complete!");
     }
 
     private void LoseGame()
     {
+        if (lettersManager != null)
+            lettersManager.StopSpawning();
+
         if (collectedText != null)
             collectedText.text = "You are Dead Restart the game";
     }
+    public void RestartGame()
+    {
+        if (lettersManager != null)
+            lettersManager.StopSpawning();
+
+        BeginGame();
+    }
+
+    // extend this function ela 7sab wch tes7a9 fel menu nano
+    public String returnToMenu()
+    {
+        return collectedLetters;
+    }
+
 }
