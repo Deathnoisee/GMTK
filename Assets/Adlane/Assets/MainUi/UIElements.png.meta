@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: a58bab14030324a49ae385ba1084a569
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8316150575541490755
+    second: UIElements_0
+  - first:
+      213: 8744292842307573814
+    second: UIElements_1
+  - first:
+      213: 2038032196489607726
+    second: UIElements_2
+  - first:
+      213: 4444071716422392739
+    second: UIElements_3
+  - first:
+      213: -1617723035926807461
+    second: UIElements_4
+  - first:
+      213: 6994840034662297689
+    second: UIElements_5
+  - first:
+      213: 3978156490039471001
+    second: UIElements_6
+  - first:
+      213: -632775486944045497
+    second: UIElements_7
+  - first:
+      213: -5864815142529410699
+    second: UIElements_8
+  - first:
+      213: -4721780022907650711
+    second: UIElements_9
+  - first:
+      213: -2222538922689579831
+    second: UIElements_10
+  - first:
+      213: 3752016821854407125
+    second: UIElements_11
+  - first:
+      213: 5687524595573011454
+    second: UIElements_12
+  - first:
+      213: -145808401816936526
+    second: UIElements_13
+  - first:
+      213: 9047942841961285903
+    second: UIElements_14
+  - first:
+      213: -292476657873066356
+    second: UIElements_15
+  - first:
+      213: -5264349513311935306
+    second: UIElements_16
+  - first:
+      213: -2434362754934827416
+    second: UIElements_17
+  - first:
+      213: -171452630345709121
+    second: UIElements_18
+  - first:
+      213: -8692956992130699471
+    second: UIElements_19
+  - first:
+      213: 8990929236954338107
+    second: UIElements_20
+  - first:
+      213: -6042041692926436689
+    second: UIElements_21
+  - first:
+      213: -6461165549020401151
+    second: UIElements_22
+  - first:
+      213: -647765050927467642
+    second: UIElements_23
+  - first:
+      213: -2800132268249454491
+    second: UIElements_24
+  - first:
+      213: 7722530337125013991
+    second: UIElements_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Biege Button
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 3362
+        width: 581
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3449fc933e6e86370800000000000000
+      internalID: 8316150575541490755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: highlited Biege
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 3365
+        width: 581
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 638dbb5c208f95970800000000000000
+      internalID: 8744292842307573814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Biege Clicked
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 3375
+        width: 581
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2a72981c7b884c10800000000000000
+      internalID: 2038032196489607726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: checkbox biege
+      rect:
+        serializedVersion: 2
+        x: 2671
+        y: 3445
+        width: 251
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ab97bd2ea38cad30800000000000000
+      internalID: 4444071716422392739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheckBox Biege Clicked
+      rect:
+        serializedVersion: 2
+        x: 3092
+        y: 3445
+        width: 250
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5cbd9a4871bc89e0800000000000000
+      internalID: -1617723035926807461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checked Checkbox Biege
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 3446
+        width: 250
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9503ab683f9a21160800000000000000
+      internalID: 6994840034662297689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue Button
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 2962
+        width: 581
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99ba7b12040453730800000000000000
+      internalID: 3978156490039471001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hover Blue Button
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 2976
+        width: 581
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74610261c0ee737f0800000000000000
+      internalID: -632775486944045497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clicked Blue Button
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 2986
+        width: 581
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 579d33473bdfb9ea0800000000000000
+      internalID: -5864815142529410699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: checkbox blue
+      rect:
+        serializedVersion: 2
+        x: 2662
+        y: 3081
+        width: 250
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96dbd03161ed87eb0800000000000000
+      internalID: -4721780022907650711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkbox blue clicked
+      rect:
+        serializedVersion: 2
+        x: 3083
+        y: 3081
+        width: 250
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c4bb9510a4f721e0800000000000000
+      internalID: -2222538922689579831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checked checkbox blue
+      rect:
+        serializedVersion: 2
+        x: 3501
+        y: 3082
+        width: 250
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d90ce1ab67d11430800000000000000
+      internalID: 3752016821854407125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green Button
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 2532
+        width: 581
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef33d626c752eee40800000000000000
+      internalID: 5687524595573011454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hover Green Button
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 2530
+        width: 581
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bf1f64f70cf9fdf0800000000000000
+      internalID: -145808401816936526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clicked Green Button
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 2540
+        width: 581
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f090423a310c09d70800000000000000
+      internalID: 9047942841961285903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkbox Green
+      rect:
+        serializedVersion: 2
+        x: 2667
+        y: 2717
+        width: 250
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c86e16e770ae0fbf0800000000000000
+      internalID: -292476657873066356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkbox Green clicked
+      rect:
+        serializedVersion: 2
+        x: 3088
+        y: 2714
+        width: 250
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b4aa85620641f6b0800000000000000
+      internalID: -5264349513311935306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checked Checkbox green
+      rect:
+        serializedVersion: 2
+        x: 3505
+        y: 2715
+        width: 251
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8661ba1e8f7673ed0800000000000000
+      internalID: -2434362754934827416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: input field
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 1832
+        width: 816
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb90078bdb0ee9df0800000000000000
+      internalID: -171452630345709121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrollBar
+      rect:
+        serializedVersion: 2
+        x: 2325
+        y: 93
+        width: 119
+        height: 2176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13f2d444ca96c5780800000000000000
+      internalID: -8692956992130699471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scroll bar Biege thingy
+      rect:
+        serializedVersion: 2
+        x: 2815
+        y: 1608
+        width: 126
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b335659418236cc70800000000000000
+      internalID: 8990929236954338107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scroll bar blue thingy
+      rect:
+        serializedVersion: 2
+        x: 3090
+        y: 1607
+        width: 126
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa1507a71b562ca0800000000000000
+      internalID: -6042041692926436689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scroll bar green thingy
+      rect:
+        serializedVersion: 2
+        x: 3361
+        y: 1612
+        width: 126
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 102b5a77a245556a0800000000000000
+      internalID: -6461165549020401151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Biege Clicked thingy
+      rect:
+        serializedVersion: 2
+        x: 2819
+        y: 1255
+        width: 126
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6833e814e1da207f0800000000000000
+      internalID: -647765050927467642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrollBar Blue clicked thingy
+      rect:
+        serializedVersion: 2
+        x: 3094
+        y: 1254
+        width: 126
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 568e1eaa98ee329d0800000000000000
+      internalID: -2800132268249454491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scrollbar Thingy green clicked
+      rect:
+        serializedVersion: 2
+        x: 3365
+        y: 1256
+        width: 126
+        height: 278
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e993870d60fb2b60800000000000000
+      internalID: 7722530337125013991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2ebc1b1b920ce0a44b390d2ccce03804
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Biege Button: 8316150575541490755
+      Biege Clicked: 2038032196489607726
+      Biege Clicked thingy: -647765050927467642
+      Blue Button: 3978156490039471001
+      CheckBox Biege Clicked: -1617723035926807461
+      Checkbox Green: -292476657873066356
+      Checkbox Green clicked: -5264349513311935306
+      Checkbox blue clicked: -2222538922689579831
+      Checked Checkbox Biege: 6994840034662297689
+      Checked Checkbox green: -2434362754934827416
+      Checked checkbox blue: 3752016821854407125
+      Clicked Green Button: 9047942841961285903
+      Green Button: 5687524595573011454
+      Hover Blue Button: -632775486944045497
+      Hover Green Button: -145808401816936526
+      ScrollBar: -8692956992130699471
+      ScrollBar Blue clicked thingy: -2800132268249454491
+      Scrollbar Thingy green clicked: 7722530337125013991
+      checkbox biege: 4444071716422392739
+      checkbox blue: -4721780022907650711
+      clicked Blue Button: -5864815142529410699
+      highlited Biege: 8744292842307573814
+      input field: -171452630345709121
+      scroll bar Biege thingy: 8990929236954338107
+      scroll bar blue thingy: -6042041692926436689
+      scroll bar green thingy: -6461165549020401151
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
