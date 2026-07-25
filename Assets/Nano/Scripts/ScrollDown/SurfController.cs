@@ -74,6 +74,7 @@ public class SurfController : MonoBehaviour
     public void Die()
     {
         health--;
+        CameraShake.instance.ShakeSmall();
         CanvasManager.instance.UpdateheartUI();
         if (health <= 0)
         {

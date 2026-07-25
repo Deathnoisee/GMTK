@@ -4145,6 +4145,7 @@ GameObject:
   - component: {fileID: 919452844}
   - component: {fileID: 919452843}
   - component: {fileID: 919452846}
+  - component: {fileID: 919452847}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4270,6 +4271,22 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &919452847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919452842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d9a05787b4f1e439ed76498ed90fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  defaultDuration: 0.3
+  defaultStrength: 0.5
+  defaultVibrato: 10
+  defaultRandomness: 90
 --- !u!1 &931478577
 GameObject:
   m_ObjectHideFlags: 0
@@ -5031,7 +5048,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SurfController
   completionCount: 0
   completionTarget: 10
+  completionDuration: 60
   started: 0
+  completed: 0
   health: 3
   speed: 5
 --- !u!61 &1134942562

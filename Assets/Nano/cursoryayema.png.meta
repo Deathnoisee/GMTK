@@ -1,0 +1,1290 @@
+fileFormatVersion: 2
+guid: fe2425d14e1ac8c4589746be6f1d0930
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3748304160335314670
+    second: cursoryayema_0
+  - first:
+      213: 1582914415329217757
+    second: cursoryayema_1
+  - first:
+      213: -7611328135132868699
+    second: cursoryayema_2
+  - first:
+      213: -3638600566560937843
+    second: cursoryayema_3
+  - first:
+      213: -7580597273127906570
+    second: cursoryayema_4
+  - first:
+      213: 6627451986303310426
+    second: cursoryayema_5
+  - first:
+      213: -7257438737676672713
+    second: cursoryayema_6
+  - first:
+      213: -1995076401926903848
+    second: cursoryayema_7
+  - first:
+      213: -8928895733129417622
+    second: cursoryayema_8
+  - first:
+      213: -2009945975548480413
+    second: cursoryayema_9
+  - first:
+      213: 2456627122435048916
+    second: cursoryayema_10
+  - first:
+      213: 3183318006975210933
+    second: cursoryayema_11
+  - first:
+      213: 1150731177679597429
+    second: cursoryayema_12
+  - first:
+      213: 7763887693637324137
+    second: cursoryayema_13
+  - first:
+      213: 2742129684483804802
+    second: cursoryayema_14
+  - first:
+      213: 7786433186362491076
+    second: cursoryayema_15
+  - first:
+      213: -6515963359792201477
+    second: cursoryayema_16
+  - first:
+      213: -3666284782409797557
+    second: cursoryayema_17
+  - first:
+      213: 8653947771533094944
+    second: cursoryayema_18
+  - first:
+      213: 7075363579330585082
+    second: cursoryayema_19
+  - first:
+      213: -7606541778096840000
+    second: cursoryayema_20
+  - first:
+      213: 1130646716849442783
+    second: cursoryayema_21
+  - first:
+      213: 8449116749676503244
+    second: cursoryayema_22
+  - first:
+      213: -8446136606625735009
+    second: cursoryayema_23
+  - first:
+      213: -9076254381625871597
+    second: cursoryayema_24
+  - first:
+      213: -7907298902708480507
+    second: cursoryayema_25
+  - first:
+      213: -1865414518823785845
+    second: cursoryayema_26
+  - first:
+      213: 4030398902087805782
+    second: cursoryayema_27
+  - first:
+      213: 6117167556561039180
+    second: cursoryayema_28
+  - first:
+      213: -2230463007086828189
+    second: cursoryayema_29
+  - first:
+      213: -128659172569778866
+    second: cursoryayema_30
+  - first:
+      213: 1692508547862622505
+    second: cursoryayema_31
+  - first:
+      213: 7303946346547779745
+    second: cursoryayema_32
+  - first:
+      213: -3583536612230273641
+    second: cursoryayema_33
+  - first:
+      213: -2174189973804117581
+    second: cursoryayema_34
+  - first:
+      213: -3359626174479101913
+    second: cursoryayema_35
+  - first:
+      213: -1421324453925859963
+    second: cursoryayema_36
+  - first:
+      213: 382134781490026472
+    second: cursoryayema_37
+  - first:
+      213: -7597837072971741120
+    second: cursoryayema_38
+  - first:
+      213: -1205211527236277709
+    second: cursoryayema_39
+  - first:
+      213: -1587569780614164387
+    second: cursoryayema_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cursoryayema_0
+      rect:
+        serializedVersion: 2
+        x: 3464
+        y: 4072
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 211481db9395bfbc0800000000000000
+      internalID: -3748304160335314670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 3370
+        width: 532
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc0b8b2644a7f510800000000000000
+      internalID: 1582914415329217757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_2
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 3368
+        width: 532
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5af087c33612f5690800000000000000
+      internalID: -7611328135132868699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_3
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 3358
+        width: 522
+        height: 246
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d88a9961018118dc0800000000000000
+      internalID: -3638600566560937843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_4
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3550
+        width: 220
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f29aed91fe4cc690800000000000000
+      internalID: -7580597273127906570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_5
+      rect:
+        serializedVersion: 2
+        x: 3210
+        y: 3550
+        width: 216
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5ad091c77079fb50800000000000000
+      internalID: 6627451986303310426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_6
+      rect:
+        serializedVersion: 2
+        x: 3548
+        y: 3548
+        width: 220
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7316f9d6be5684b90800000000000000
+      internalID: -7257438737676672713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_7
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 3354
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d7e16335901054e0800000000000000
+      internalID: -1995076401926903848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_8
+      rect:
+        serializedVersion: 2
+        x: 1798
+        y: 3356
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6ce15653a0361480800000000000000
+      internalID: -8928895733129417622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_9
+      rect:
+        serializedVersion: 2
+        x: 2882
+        y: 3286
+        width: 220
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364f4bdc8cc3b14e0800000000000000
+      internalID: -2009945975548480413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_10
+      rect:
+        serializedVersion: 2
+        x: 3214
+        y: 3284
+        width: 214
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d5c4522a51b71220800000000000000
+      internalID: 2456627122435048916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_11
+      rect:
+        serializedVersion: 2
+        x: 3552
+        y: 3284
+        width: 218
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b5acd48cda6d2c20800000000000000
+      internalID: 3183318006975210933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_12
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 3004
+        width: 532
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57f2f85c8e738ff00800000000000000
+      internalID: 1150731177679597429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_13
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 3002
+        width: 532
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d8747f8bedebb60800000000000000
+      internalID: 7763887693637324137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_14
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 3004
+        width: 522
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28e06bb6b600e0620800000000000000
+      internalID: 2742129684483804802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_15
+      rect:
+        serializedVersion: 2
+        x: 2888
+        y: 3014
+        width: 218
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c0037c8ab7fe0c60800000000000000
+      internalID: 7786433186362491076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_16
+      rect:
+        serializedVersion: 2
+        x: 3218
+        y: 3014
+        width: 214
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf0002ae8d5a295a0800000000000000
+      internalID: -6515963359792201477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_17
+      rect:
+        serializedVersion: 2
+        x: 3556
+        y: 3014
+        width: 218
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b403b0b4a6dbe1dc0800000000000000
+      internalID: -3666284782409797557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_18
+      rect:
+        serializedVersion: 2
+        x: 1748
+        y: 3002
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 020730bc5aff81870800000000000000
+      internalID: 8653947771533094944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_19
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 2674
+        width: 532
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af16cb240bdb03260800000000000000
+      internalID: 7075363579330585082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_20
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 2660
+        width: 532
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c2ae53dd82207690800000000000000
+      internalID: -7606541778096840000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_21
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 2680
+        width: 522
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdfc544d23dd0bf00800000000000000
+      internalID: 1130646716849442783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_22
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 2672
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc065422bea414570800000000000000
+      internalID: 8449116749676503244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_23
+      rect:
+        serializedVersion: 2
+        x: 3108
+        y: 2594
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9e56ad718b49ca80800000000000000
+      internalID: -8446136606625735009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_24
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 1826
+        width: 170
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3137b1c5abaaa0280800000000000000
+      internalID: -9076254381625871597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_25
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1828
+        width: 176
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 506993bea81a34290800000000000000
+      internalID: -7907298902708480507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_26
+      rect:
+        serializedVersion: 2
+        x: 2056
+        y: 928
+        width: 144
+        height: 1350
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ae6a6e067bc16e0800000000000000
+      internalID: -1865414518823785845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_27
+      rect:
+        serializedVersion: 2
+        x: 3136
+        y: 1794
+        width: 116
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65b611e827adee730800000000000000
+      internalID: 4030398902087805782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_28
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 1796
+        width: 116
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4f6d588b7b84e450800000000000000
+      internalID: 6117167556561039180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_29
+      rect:
+        serializedVersion: 2
+        x: 3532
+        y: 1792
+        width: 116
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 365a0f966bdcb01e0800000000000000
+      internalID: -2230463007086828189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_30
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 1512
+        width: 168
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e45f1e90a29e63ef0800000000000000
+      internalID: -128659172569778866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_31
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1518
+        width: 170
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 921f9a69e8ffc7710800000000000000
+      internalID: 1692508547862622505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_32
+      rect:
+        serializedVersion: 2
+        x: 3136
+        y: 1524
+        width: 116
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a81e741184dc5560800000000000000
+      internalID: 7303946346547779745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_33
+      rect:
+        serializedVersion: 2
+        x: 3336
+        y: 1518
+        width: 116
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79568640078b44ec0800000000000000
+      internalID: -3583536612230273641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_34
+      rect:
+        serializedVersion: 2
+        x: 3534
+        y: 1512
+        width: 116
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b19039fcb9b3d1e0800000000000000
+      internalID: -2174189973804117581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_35
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 1182
+        width: 170
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 720911c5bc53061d0800000000000000
+      internalID: -3359626174479101913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_36
+      rect:
+        serializedVersion: 2
+        x: 1448
+        y: 1184
+        width: 176
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58d4c2d80f0764ce0800000000000000
+      internalID: -1421324453925859963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_37
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 868
+        width: 168
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e7d8032f8d9d4500800000000000000
+      internalID: 382134781490026472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_38
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 874
+        width: 170
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 048c93cef6f0f8690800000000000000
+      internalID: -7597837072971741120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_39
+      rect:
+        serializedVersion: 2
+        x: 2866
+        y: 666
+        width: 230
+        height: 340
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a20ef508a364fe0800000000000000
+      internalID: -1205211527236277709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_40
+      rect:
+        serializedVersion: 2
+        x: 3346
+        y: 672
+        width: 272
+        height: 350
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d50195222b1d7f9e0800000000000000
+      internalID: -1587569780614164387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_41
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 506
+        width: 170
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f8f6595de35fcc4c80d28fd10fb0fc0
+      internalID: -917187394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_42
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 506
+        width: 178
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c67aa786ac49e70408ccd3a5b4c05c9d
+      internalID: -1260181779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_43
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 192
+        width: 168
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ad0e00bb6400441af5050dfd5860e6
+      internalID: 826849903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cursoryayema_44
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 196
+        width: 172
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d5044ba9d411294d962210481455a05
+      internalID: -352579379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 106b6b7f99abd3743a3b8f9fdef314ea
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      cursoryayema_0: -3748304160335314670
+      cursoryayema_1: 1582914415329217757
+      cursoryayema_10: 2456627122435048916
+      cursoryayema_11: 3183318006975210933
+      cursoryayema_12: 1150731177679597429
+      cursoryayema_13: 7763887693637324137
+      cursoryayema_14: 2742129684483804802
+      cursoryayema_15: 7786433186362491076
+      cursoryayema_16: -6515963359792201477
+      cursoryayema_17: -3666284782409797557
+      cursoryayema_18: 8653947771533094944
+      cursoryayema_19: 7075363579330585082
+      cursoryayema_2: -7611328135132868699
+      cursoryayema_20: -7606541778096840000
+      cursoryayema_21: 1130646716849442783
+      cursoryayema_22: 8449116749676503244
+      cursoryayema_23: -8446136606625735009
+      cursoryayema_24: -9076254381625871597
+      cursoryayema_25: -7907298902708480507
+      cursoryayema_26: -1865414518823785845
+      cursoryayema_27: 4030398902087805782
+      cursoryayema_28: 6117167556561039180
+      cursoryayema_29: -2230463007086828189
+      cursoryayema_3: -3638600566560937843
+      cursoryayema_30: -128659172569778866
+      cursoryayema_31: 1692508547862622505
+      cursoryayema_32: 7303946346547779745
+      cursoryayema_33: -3583536612230273641
+      cursoryayema_34: -2174189973804117581
+      cursoryayema_35: -3359626174479101913
+      cursoryayema_36: -1421324453925859963
+      cursoryayema_37: 382134781490026472
+      cursoryayema_38: -7597837072971741120
+      cursoryayema_39: -1205211527236277709
+      cursoryayema_4: -7580597273127906570
+      cursoryayema_40: -1587569780614164387
+      cursoryayema_41: -917187394
+      cursoryayema_42: -1260181779
+      cursoryayema_43: 826849903
+      cursoryayema_44: -352579379
+      cursoryayema_5: 6627451986303310426
+      cursoryayema_6: -7257438737676672713
+      cursoryayema_7: -1995076401926903848
+      cursoryayema_8: -8928895733129417622
+      cursoryayema_9: -2009945975548480413
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

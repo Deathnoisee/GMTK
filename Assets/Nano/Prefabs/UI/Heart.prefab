@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Heart
   popDuration: 0.3
   popEase: 27
+  deadSprite: {fileID: 7885684081779559860, guid: b39dfe88731987d479b7d9530ee3a7e3, type: 3}
 --- !u!95 &-6243068534997499536
 Animator:
   serializedVersion: 7

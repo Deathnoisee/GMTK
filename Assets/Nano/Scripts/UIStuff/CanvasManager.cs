@@ -30,7 +30,7 @@ public class CanvasManager : MonoBehaviour
             return;
         }
 
-        Destroy(HearthGroup.transform.GetChild(lastIndex).gameObject);
+        HearthGroup.transform.GetChild(lastIndex).gameObject.GetComponent<Heart>().ChangeSprite();
     }
 
     public void GameOverPanel()
