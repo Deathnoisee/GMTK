@@ -19,9 +19,10 @@ public class numManager : MonoBehaviour
 
     private void Start()
     {
-        BeginStep(0);
+
     }
 
+    // Call this method to start the minigame nano EBDA B BeginStep(0) !!
     public void BeginStep(int step)
     {
         currentStep = step;
@@ -62,6 +63,7 @@ public class numManager : MonoBehaviour
         }
     }
 
+    // Call this method to handle win condition nano
     private void Win()
     {
         Debug.Log("Phone number complete!");

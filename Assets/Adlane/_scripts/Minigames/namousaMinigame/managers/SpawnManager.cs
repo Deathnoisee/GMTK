@@ -17,13 +17,20 @@ public class spawnManager : MonoBehaviour
     [Header("Curve")]
     [SerializeField] private AnimationCurve spawnRateCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
+    private bool gameStarted = false;
+
+    // Call this method to start the minigame nano
     public void startMinigame()
     {
+        if (gameStarted) return;
+        gameStarted = true;
+        Debug.Log("Starting spawn loop");
         StartCoroutine(SpawnLoop());
     }
 
     private IEnumerator SpawnLoop()
     {
+        Debug.Log("Starting spawn loop inside coroutine");
         float elapsed = 0f;
 
         while (namousManager != null && namousManager.RemainingNamous > 0)
@@ -47,5 +54,6 @@ public class spawnManager : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             elapsed += waitTime;
         }
+        gameStarted = false;
     }
 }

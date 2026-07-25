@@ -79,6 +79,7 @@ public class namousManager : MonoBehaviour
         return new Vector2(x, y);
     }
 
+    // Extend this method nano to handle win condition when all namous are defeated
     private void win()
     {
         Debug.Log("You win!");

@@ -1,9 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 public class leverManager : MonoBehaviour
 {
     [SerializeField] private List<lever> levers = new List<lever>();
+    [SerializeField] private TMP_Text ButtonText;
 
+    // Call this method to start the game nano
     public void StartGame()
     {
         Init();
@@ -18,6 +21,8 @@ public class leverManager : MonoBehaviour
             if (l == null) continue;
             l.gameObject.SetActive(true);
             l.isTrue = false;
+            l.GetComponent<PolygonCollider2D>().enabled = true;
+            ButtonText.text = "Reset";
             l.changeColor();
         }
 
@@ -27,7 +32,6 @@ public class leverManager : MonoBehaviour
             levers[randomIndex].isTrue = true;
             levers[randomIndex].changeColor();
         }
-
     }
 
     public void SwitchLever(int index)
@@ -38,7 +42,7 @@ public class leverManager : MonoBehaviour
         Toggle(index - 1);
         Toggle(index + 1);
 
-        if (CheckWinCondition()) Debug.Log("You Win");
+        if (CheckWinCondition()) WinGame();
     }
     private void Toggle(int i)
     {
@@ -56,6 +60,16 @@ public class leverManager : MonoBehaviour
         }
         return true;
     }
-
+    // extend this method lel win nano
+    private void WinGame()
+    {
+        Debug.Log("You win the lever minigame!");
+        ButtonText.text = "You Win!";
+        foreach (lever l in levers)
+        {
+            if (l == null) continue;
+            l.GetComponent<PolygonCollider2D>().enabled = false;
+        }
+    }
 
 }

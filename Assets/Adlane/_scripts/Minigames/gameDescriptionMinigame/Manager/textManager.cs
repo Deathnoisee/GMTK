@@ -12,13 +12,15 @@ public class textManager : MonoBehaviour
 
     [Header("Prompt")]
     [TextArea]
-    [SerializeField] private string prompt = "Type this sentence exactly";
+    [SerializeField] private string prompt;
     private string lastCheckedText = "";
     public string[] targetWords;
     public string[] typedWords;
 
-    private void Start()
+    // nano
+    public void SetPrompt(string newPrompt)
     {
+        prompt = newPrompt;
         if (promptText != null)
             promptText.text = prompt;
     }
@@ -69,11 +71,13 @@ public class textManager : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Game Over");
+            customInputField.gameObject.SetActive(false);
             return;
         }
         Debug.Log("Mistake made");
         health--;
     }
+    // ak taerff lfilm nano
     private void Win()
     {
         if (health <= 0)
