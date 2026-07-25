@@ -3,19 +3,25 @@ using UnityEngine;
 public class yesOrNo : MonoBehaviour
 {
     [SerializeField] private bool trueHolder = false;
+    [SerializeField] private sentenceManager sentenceManager;
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (trueHolder && collision.gameObject.CompareTag("Checkbox"))
+        if (!collision.gameObject.CompareTag("Checkbox")) return;
+
+        bool correct = (sentenceManager != null && sentenceManager.IsCurrentAnswerYes() == trueHolder);
+
+        if (correct)
         {
             Debug.Log("You Win");
-            Destroy(collision.gameObject);
+            sentenceManager.NextLevel();
         }
-        else if (!trueHolder && collision.gameObject.CompareTag("Checkbox"))
+        else
         {
             Debug.Log("You Lose");
-            Destroy(collision.gameObject);
+            sentenceManager.totalTries--;
         }
-    }
 
+        Destroy(collision.gameObject);
+    }
 }

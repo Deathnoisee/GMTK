@@ -1,65 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LettersManager : MonoBehaviour
 {
-    [Header("Letter Settings")]
-    [SerializeField] private List<GameObject> lettersPrefab = new List<GameObject>();
-
-    [Header("Spawning Settings")]
+    [Header("References")]
+    [SerializeField] private UsernameManager usernameManager;
+    [SerializeField] private GameObject letterPrefab;
+    [SerializeField] private Transform lettersParent;
     [SerializeField] private BoxCollider2D spawnArea;
-    [SerializeField] private float spawnInterval = 2.5f;
-    [SerializeField] private int maxAlive = 5;
-    public bool spawnLetters = true;
 
-    private float spawnTimer = 0f;
+    [Header("Spawn Settings")]
+    [SerializeField] private float minSpawnDelay = 0.6f;
+    [SerializeField] private float maxSpawnDelay = 1.5f;
+    [SerializeField, Range(0f, 1f)] private float validLetterChance = 0.75f;
+    [SerializeField] private int maxAliveLetters = 5;
+    [SerializeField] private float spawnAboveBoundsOffset = 0.5f;
+
+    private List<GameObject> aliveLetters = new List<GameObject>();
+    private Coroutine spawnRoutine;
 
     private void Start()
     {
-        spawnTimer = 0f;
+        StartSpawning();
     }
 
-    private void Update()
+    public void StartSpawning()
     {
-        if (!spawnLetters || lettersPrefab.Count == 0 || spawnArea == null)
-            return;
+        if (spawnRoutine != null)
+            StopCoroutine(spawnRoutine);
 
-        spawnTimer += Time.deltaTime;
+        spawnRoutine = StartCoroutine(SpawnLoop());
+    }
 
-        if (spawnTimer >= spawnInterval)
+    public void StopSpawning()
+    {
+        if (spawnRoutine != null)
+            StopCoroutine(spawnRoutine);
+
+        spawnRoutine = null;
+    }
+
+    private IEnumerator SpawnLoop()
+    {
+        while (true)
         {
-            int currentAlive = GameObject.FindGameObjectsWithTag("Letter").Length;
-            if (currentAlive < maxAlive)
-            {
-                SpawnLetter();
-            }
-            spawnTimer = 0f;
+            CleanupDeadLetters();
+
+            if (aliveLetters.Count < maxAliveLetters)
+                SpawnOneLetter();
+
+            float wait = Random.Range(minSpawnDelay, maxSpawnDelay);
+            yield return new WaitForSeconds(wait);
         }
     }
 
-    private void SpawnLetter()
+    private void SpawnOneLetter()
     {
-        if (lettersPrefab.Count == 0 || spawnArea == null)
+        if (usernameManager == null || letterPrefab == null || spawnArea == null)
             return;
 
-        GameObject prefab = lettersPrefab[Random.Range(0, lettersPrefab.Count)];
-        Vector3 spawnPosition = GetRandomPointInBox(spawnArea);
-        Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
+        bool wantValid = Random.value < validLetterChance;
 
-        Instantiate(prefab, spawnPosition, randomRotation);
+        if (!usernameManager.TryGetSpawnLetter(wantValid, out char letter))
+            return;
+
+        Bounds b = spawnArea.bounds;
+        float x = Random.Range(b.min.x, b.max.x);
+        float y = b.max.y + spawnAboveBoundsOffset;
+
+        Vector3 spawnPos = new Vector3(x, y, 0f);
+        GameObject obj = Instantiate(letterPrefab, spawnPos, Quaternion.identity, lettersParent);
+
+        TMP_Text text = obj.GetComponentInChildren<TMP_Text>();
+        if (text != null)
+            text.text = letter.ToString();
+
+        aliveLetters.Add(obj);
     }
 
-    private Vector3 GetRandomPointInBox(BoxCollider2D box)
+    private void CleanupDeadLetters()
     {
-
-
-        float x = Random.Range(box.bounds.min.x, box.bounds.max.x);
-        float y = Random.Range(box.bounds.min.y, box.bounds.max.y);
-
-        Vector3 localPoint = new Vector2(x, y);
-        return box.transform.TransformPoint(localPoint);
+        aliveLetters.RemoveAll(item => item == null);
     }
-
-
 }

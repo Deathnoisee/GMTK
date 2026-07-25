@@ -23,6 +23,9 @@ public class HoldChargeButton : MonoBehaviour
     [SerializeField] private float pulseSpeed = 12f;
     [SerializeField] private float pulseAmount = 0.15f;
 
+    [Header("Sentence Manager")]
+    [SerializeField] private sentenceManager sentenceManager;
+
     private bool isHolding;
     private float charge;
     private Vector3 originalBarScale;
@@ -73,6 +76,11 @@ public class HoldChargeButton : MonoBehaviour
 
     void OnMouseDown()
     {
+        if(sentenceManager.totalTries <= 0)
+        {
+            sentenceManager.Lose();
+            return;
+        }
         isHolding = true;
         charge = 0f;
     }
@@ -100,6 +108,7 @@ public class HoldChargeButton : MonoBehaviour
                     spawnPos = Arrow.transform.position + (Vector3)(dir * spawnOffset);
 
                 throwable = Instantiate(ThrowablePrefab, spawnPos, Quaternion.identity);
+                throwable.GetComponent<Death>().sentenceManager = sentenceManager;
                 Rigidbody2D rb = throwable.GetComponent<Rigidbody2D>();
 
                 Arrow.transform.rotation = Quaternion.Euler(0f, 0f, initialAngle);
