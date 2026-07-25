@@ -32,7 +32,6 @@ public class UsernameManager : MonoBehaviour
 
     private int currentRoundIndex = 0;
     private int heartsLeft;
-    private int correctLettersThisRound = 0;
 
     private string collectedLetters = "";
 
@@ -80,7 +79,6 @@ public class UsernameManager : MonoBehaviour
 
         currentRoundIndex = index;
         allowedLetters.Clear();
-        correctLettersThisRound = 0;
 
         LetterRound round = rounds[roundOrder[currentRoundIndex]];
         string allowed = round.allowedLetters.ToUpperInvariant();
