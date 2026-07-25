@@ -8,6 +8,7 @@ public class MouseController : MonoBehaviour
 
 
     public GameObject nextLevel;
+    public LayerMask wallLayerMask;
 
 
 
@@ -22,10 +23,13 @@ public class MouseController : MonoBehaviour
             Cursor.visible = false;
             startPosition = transform.position;
 
+
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0;
 
             offset = startPosition - mousePosition;
+            Vector3 targetPos = mousePosition + offset;
+            MoveWithWallCheck(targetPos);
         }
 
     }
@@ -65,6 +69,14 @@ public class MouseController : MonoBehaviour
             Debug.Log("Finished");
         }
     }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Wall"))
+        {
+            Die();
+        }
+    }
     void HandleMouseMovement()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -72,7 +84,26 @@ public class MouseController : MonoBehaviour
 
         transform.position = mousePosition + offset;
     }
+    void MoveWithWallCheck(Vector3 targetPos)
+    {
+        Vector3 currentPos = transform.position;
+        Vector3 direction = targetPos - currentPos;
+        float distance = direction.magnitude;
 
+        if (distance > 0.001f)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(currentPos, direction.normalized, distance, wallLayerMask);
+
+            if (hit.collider != null && hit.collider.CompareTag("Wall"))
+            {
+                Debug.Log("Wall in path — blocked/died");
+                Die();
+                return;
+            }
+        }
+
+        transform.position = targetPos;
+    }
 
     void Die()
     {
