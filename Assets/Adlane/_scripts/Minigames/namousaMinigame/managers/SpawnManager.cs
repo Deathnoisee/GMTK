@@ -19,6 +19,7 @@ public class spawnManager : MonoBehaviour
 
     private bool gameStarted = false;
 
+    // Call this method to start the minigame nano
     public void startMinigame()
     {
         if (gameStarted) return;

@@ -16,9 +16,9 @@ public class PasswordManager : MonoBehaviour
 
     private void Start()
     {
-        //remove later
-        StartCheckingPassword();
+
     }
+    // Call this method to start checking the password input nano
     public void StartCheckingPassword()
     {
         StartCoroutine(CheckPasswordRoutine());
@@ -33,6 +33,7 @@ public class PasswordManager : MonoBehaviour
             if (IsCurrentStepValid(text))
             {
                 SetText("Password accepted.", correctColor);
+                win();
                 yield break;
             }
 
@@ -89,6 +90,11 @@ public class PasswordManager : MonoBehaviour
             return false;
         }
         return true;
+    }
+    // Extend this method nano to handle win condition when the password meets all requirements
+    private void win()
+    {
+        Debug.Log("Password accepted!");
     }
 
     // private string GetCurrentInstruction()

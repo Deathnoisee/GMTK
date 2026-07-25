@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 
 public class patternGenerator : MonoBehaviour
 {
@@ -12,26 +13,18 @@ public class patternGenerator : MonoBehaviour
     [SerializeField] private float flashDuration;
     [Header("other Options")]
     [SerializeField] private int maxRounds = 5;
+    [SerializeField] private TMP_Text ButtonText;
     private int currentRound = 0;
     private int currentInputIndex = 0;
     public bool canClick = false;
 
-    private void Start()
-    {
-        StartPattern();
-
-    }
-    // private void OnEnable()
-    // {
-    //     StartPattern();
-    // }
-    private void Update()
-    {
-    }
+    // Hnaya tebda Nano
     public void StartPattern()
     {
         currentRound = 0;
         patternSequence.Clear();
+        canClick = false;
+        ButtonText.text = "Restart?";
         NextPattern();
     }
     private void NextPattern()
@@ -39,7 +32,7 @@ public class patternGenerator : MonoBehaviour
         currentRound++;
         if (currentRound > maxRounds)
         {
-            Debug.Log("gg");
+            WinGame();
             return;
         }
 
@@ -69,7 +62,7 @@ public class patternGenerator : MonoBehaviour
 
         if (isInput)
         {
-            halfTime *= 0.05f; // Reduce the flash duration for input flashes
+            halfTime *= 0.15f; // Reduce the flash duration for input flashes
         }
         while (elapsed < halfTime)
         {
@@ -89,6 +82,10 @@ public class patternGenerator : MonoBehaviour
         }
 
         ringSegments[index].color = originalColor;
+        if (isInput)
+        {
+            yield return new WaitForSeconds(0.4f);
+        }
     }
     public void CheckInput(int inputIndex)
     {
@@ -98,7 +95,7 @@ public class patternGenerator : MonoBehaviour
         {
             Debug.Log("Wrong input! Game Over.");
             canClick = false;
-            //TODO: RESTART GAME
+            ButtonText.text = "Restart?";
             return;
         }
 
@@ -111,13 +108,8 @@ public class patternGenerator : MonoBehaviour
         }
 
     }
-    public void ResetGame()
-    {
-        currentRound = 0;
-        patternSequence.Clear();
-        canClick = false;
-        StartPattern();
-    }
+
+
     public void Click(int segmentIndex)
     {
         if (!canClick) return;
@@ -128,5 +120,12 @@ public class patternGenerator : MonoBehaviour
     {
         yield return FlashSegment(segmentIndex, isInput: true);
         CheckInput(segmentIndex);
+    }
+    // Hawlik l output from this minigame nano
+    public void WinGame()
+    {
+        Debug.Log("You won the game!");
+        ButtonText.text = "You Won!";
+        canClick = false;
     }
 }

@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -1790058720796146207, guid: a7607958121f97346bf5042523d50fbb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,14 +112,14 @@ MonoBehaviour:
   m_text: X
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7607958121f97346bf5042523d50fbb, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -1790058720796146207, guid: a7607958121f97346bf5042523d50fbb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -270,16 +270,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.25765246, y: 0.012999326}
-      - {x: 0.11593668, y: 0.07867547}
-      - {x: 0.0503242, y: 0.08167891}
+    - - {x: 0.26311532, y: 0.06148217}
+      - {x: 0.1534938, y: 0.121012606}
+      - {x: 0.08924705, y: 0.09875035}
       - {x: 0.15989845, y: -0.14785182}
       - {x: 0.034319848, y: -0.40017948}
       - {x: 0.10746018, y: -0.40278092}
-      - {x: 0.25560915, y: -0.31764215}
+      - {x: 0.24415478, y: -0.35993522}
       - {x: 0.40456426, y: -0.40330008}
       - {x: 0.4735361, y: -0.39596397}
       - {x: 0.36156452, y: -0.13931216}
-      - {x: 0.4579883, y: 0.08115648}
-      - {x: 0.3883851, y: 0.07955522}
+      - {x: 0.43545404, y: 0.10778789}
+      - {x: 0.40458885, y: 0.13019198}
   m_UseDelaunayMesh: 1

@@ -17,6 +17,7 @@ public class textManager : MonoBehaviour
     public string[] targetWords;
     public string[] typedWords;
 
+    // nano
     public void SetPrompt(string newPrompt)
     {
         prompt = newPrompt;
@@ -76,6 +77,7 @@ public class textManager : MonoBehaviour
         Debug.Log("Mistake made");
         health--;
     }
+    // ak taerff lfilm nano
     private void Win()
     {
         if (health <= 0)
