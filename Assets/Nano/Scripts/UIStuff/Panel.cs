@@ -4,7 +4,7 @@ using UnityEngine;
 public class Panel : MonoBehaviour
 {
     public Transform background;
-    public Transform contentParent; // holds all the child objects to stagger in
+    public Transform contentParent; // holds all the child objects (at any depth) to stagger in
 
     public GameObject parent;
 
@@ -15,6 +15,7 @@ public class Panel : MonoBehaviour
     public Ease popOutEase = Ease.InBack;
 
     private Vector3 backgroundOriginalScale;
+    private SpriteRenderer[] allSprites;
     private Vector3[] childOriginalScales;
 
     void Awake()
@@ -22,10 +23,13 @@ public class Panel : MonoBehaviour
         backgroundOriginalScale = background.localScale;
         parent = this.transform.parent.gameObject;
 
-        childOriginalScales = new Vector3[contentParent.childCount];
-        for (int i = 0; i < contentParent.childCount; i++)
+        // Grab every SpriteRenderer nested anywhere under contentParent, not just direct children
+        allSprites = contentParent.GetComponentsInChildren<SpriteRenderer>(true);
+
+        childOriginalScales = new Vector3[allSprites.Length];
+        for (int i = 0; i < allSprites.Length; i++)
         {
-            childOriginalScales[i] = contentParent.GetChild(i).localScale;
+            childOriginalScales[i] = allSprites[i].transform.localScale;
         }
     }
 
@@ -39,12 +43,11 @@ public class Panel : MonoBehaviour
         // Reset everything to zero first
         background.localScale = Vector3.zero;
 
-        for (int i = 0; i < contentParent.childCount; i++)
+        for (int i = 0; i < allSprites.Length; i++)
         {
-            Transform child = contentParent.GetChild(i);
-            if (child.GetComponent<SpriteRenderer>() != null)
+            if (allSprites[i] != null)
             {
-                child.localScale = Vector3.zero;
+                allSprites[i].transform.localScale = Vector3.zero;
             }
         }
 
@@ -53,18 +56,17 @@ public class Panel : MonoBehaviour
         // Background pops in first
         seq.Append(background.DOScale(backgroundOriginalScale, backgroundPopDuration).SetEase(popEase));
 
-        // Then each child pops in with a staggered overlap
+        // Then each sprite pops in with a staggered overlap
         float startTime = backgroundPopDuration;
-        for (int i = 0; i < contentParent.childCount; i++)
+        for (int i = 0; i < allSprites.Length; i++)
         {
-            Transform child = contentParent.GetChild(i);
-            if (child.GetComponent<SpriteRenderer>() != null)
-            {
-                Vector3 targetScale = childOriginalScales[i];
+            if (allSprites[i] == null) continue;
 
-                seq.Insert(startTime, child.DOScale(targetScale, childPopDuration).SetEase(popEase));
-                startTime += staggerDelay;
-            }
+            Transform t = allSprites[i].transform;
+            Vector3 targetScale = childOriginalScales[i];
+
+            seq.Insert(startTime, t.DOScale(targetScale, childPopDuration).SetEase(popEase));
+            startTime += staggerDelay;
         }
     }
 
@@ -72,19 +74,19 @@ public class Panel : MonoBehaviour
     {
         Sequence seq = DOTween.Sequence();
 
-        // Children pop out first, in reverse order, staggered
+        // Sprites pop out first, in reverse order, staggered
         float startTime = 0f;
-        for (int i = contentParent.childCount - 1; i >= 0; i--)
+        for (int i = allSprites.Length - 1; i >= 0; i--)
         {
-            Transform child = contentParent.GetChild(i);
-            if (child.GetComponent<SpriteRenderer>() != null)
-            {
-                seq.Insert(startTime, child.DOScale(Vector3.zero, childPopDuration).SetEase(popOutEase));
-                startTime += staggerDelay;
-            }
+            if (allSprites[i] == null) continue;
+
+            Transform t = allSprites[i].transform;
+
+            seq.Insert(startTime, t.DOScale(Vector3.zero, childPopDuration).SetEase(popOutEase));
+            startTime += staggerDelay;
         }
 
-        // Background pops out last, after children have started/finished
+        // Background pops out last, after sprites have started/finished
         seq.Insert(startTime, background.DOScale(Vector3.zero, backgroundPopDuration).SetEase(popOutEase));
 
         seq.OnComplete(() =>
