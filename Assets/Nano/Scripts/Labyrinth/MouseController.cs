@@ -1,10 +1,10 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MouseController : MonoBehaviour
 {
-    private Vector3 mousePosition;
     private Vector3 startPosition;
-    private Vector3 offset;
 
     [System.Serializable]
     public class Labyrinth
@@ -23,6 +23,12 @@ public class MouseController : MonoBehaviour
     public bool Lab = false;
 
     bool isDead = false;
+    bool isPaused = false;
+
+    private Coroutine pauseRoutine;
+
+    // NEW: offset between raw mouse world position and the object's "virtual" position
+    private Vector3 mouseOffset = Vector3.zero;
 
     void Start()
     {
@@ -32,38 +38,53 @@ public class MouseController : MonoBehaviour
         }
     }
 
+    Vector3 GetRawMouseWorldPos()
+    {
+        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
+        mouseScreenPos.z = -Camera.main.transform.position.z;
+
+        Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+        worldMousePos.z = 0f;
+
+        return worldMousePos;
+    }
+
+    // Recalculates the offset so that "raw mouse pos + offset" equals targetPos right now
+    void RealignTo(Vector3 targetPos)
+    {
+        Vector3 rawMouse = GetRawMouseWorldPos();
+        mouseOffset = targetPos - rawMouse;
+        transform.position = targetPos;
+    }
+
     void EnterLabyrinth(int index)
     {
         currentLabyrinthIndex = index;
         Lab = true;
         isDead = false;
 
-        // Deactivate all labyrinths, activate only the current one
         for (int i = 0; i < labyrinths.Length; i++)
-        {
             labyrinths[i].labyrinthObject.SetActive(i == index);
-        }
 
         startPosition = labyrinths[index].startPoint.position;
-        transform.position = startPosition;
 
         Cursor.visible = false;
 
-        // Recalculate offset so the CURRENT real cursor position maps to this labyrinth's start point
-        // (same trick as Die(), so the rodent doesn't jump based on where the real cursor happens to be)
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-        offset = startPosition - mousePosition;
+        transform.position = startPosition; // just snap visually, no offset calc yet
+        RestartPause(0.5f, startPosition);
     }
 
     void Update()
     {
         if (Lab)
         {
-            if (isDead)
+            Cursor.visible = false;
+
+            if (isDead || isPaused)
             {
                 return;
             }
+
             HandleMouseMovement();
         }
     }
@@ -74,12 +95,10 @@ public class MouseController : MonoBehaviour
 
         if (currentLabyrinthIndex < labyrinths.Length - 1)
         {
-            // Move to the next labyrinth in the list
             EnterLabyrinth(currentLabyrinthIndex + 1);
         }
         else
         {
-            // No more labyrinths — finished the whole sequence
             Debug.Log("All labyrinths complete!");
             Lab = false;
             Cursor.visible = true;
@@ -106,29 +125,39 @@ public class MouseController : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Wall"))
-        {
-            Die();
-        }
-    }
-
     void HandleMouseMovement()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-
-        transform.position = mousePosition + offset;
+        transform.position = GetRawMouseWorldPos() + mouseOffset;
     }
 
     void Die()
     {
-        transform.position = startPosition;
+        if (isDead) return;
+        isDead = true;
 
-        // Recalculate offset so current cursor position becomes the new reference point
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-        offset = startPosition - mousePosition;
+        Transform spawn = labyrinths[currentLabyrinthIndex].startPoint;
+        transform.position = spawn.position; // just snap visually, no offset calc yet
+
+        RestartPause(0.5f, spawn.position);
+    }
+
+    void RestartPause(float seconds, Vector3 realignPos)
+    {
+        if (pauseRoutine != null)
+            StopCoroutine(pauseRoutine);
+
+        pauseRoutine = StartCoroutine(PauseMovement(seconds, realignPos));
+    }
+
+    IEnumerator PauseMovement(float seconds, Vector3 realignPos)
+    {
+        isPaused = true;
+        isDead = true; // make sure death-triggered pauses also block during EnterLabyrinth's pause
+
+        yield return new WaitForSeconds(seconds);
+
+        RealignTo(realignPos); // NOW calculate the offset, using current mouse position
+        isPaused = false;
+        isDead = false;
     }
 }
