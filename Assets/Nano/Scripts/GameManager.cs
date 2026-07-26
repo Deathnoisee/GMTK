@@ -3,15 +3,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     public float timeRemaining = 300f; // 5:00 in seconds
     private bool timerRunning = true;
-
-
     public bool inMinigame = false;
-
     public static GameManager instance;
+
+    [Header("Custom Cursor")]
+    public Texture2D defaultCursorTexture;
+    public Texture2D hoverCursorTexture;
+    public Vector2 cursorHotspot = Vector2.zero;
+
+    private bool isHoveringButton = false;
+
+
+    public Panel userPanel;
+
     public void Awake()
     {
         if (instance == null)
@@ -25,24 +31,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public bool gameOver = false;
+
+    void Start()
+    {
+        SetDefaultCursor();
+    }
 
     public void OnTimerEnd()
     {
         Debug.Log("Timer has ended!");
         gameOver = true;
-        // Add any additional logic you want to execute when the timer ends
-    }
-    void Start()
-    {
-
     }
 
     public void TestClcick()
     {
         Debug.Log("Clicked");
     }
+
     public void SwictchGame(Button button)
     {
         button.GetComponent<SwitchButton>().NextGame.SetActive(true);
@@ -50,54 +56,91 @@ public class GameManager : MonoBehaviour
         {
             button.GetComponent<SwitchButton>().CurrentGame.SetActive(false);
         }
-
-
     }
 
+    void HandleCursorHover()
+    {
+        Vector3 realMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Collider2D hit = Physics2D.OverlapPoint(realMousePos);
+
+        bool nowHovering = hit != null && hit.CompareTag("Button");
+
+        // Only swap the texture when the hover state actually changes,
+        // instead of calling SetCursor every single frame
+        if (nowHovering && !isHoveringButton)
+        {
+            isHoveringButton = true;
+            SetHoverCursor();
+        }
+        else if (!nowHovering && isHoveringButton)
+        {
+            isHoveringButton = false;
+            SetDefaultCursor();
+        }
+    }
+
+    void SetDefaultCursor()
+    {
+        Cursor.SetCursor(defaultCursorTexture, cursorHotspot, CursorMode.Auto);
+    }
+
+    void SetHoverCursor()
+    {
+        Cursor.SetCursor(hoverCursorTexture, cursorHotspot, CursorMode.Auto);
+    }
 
     void OnClick()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 realMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
             Collider2D hit = Physics2D.OverlapPoint(realMousePos);
             Debug.Log("Hit object: " + (hit != null ? hit.name : "none"));
-
             if (hit != null && hit.CompareTag("Button"))
             {
                 Debug.Log("Hit button");
                 Button button = hit.GetComponent<Button>();
-                button?.onClick.Invoke();
+                if (button != null)
+                {
+                    if (button.isActive == false )
+                    {
+                        button?.onClick.Invoke();
+                        if (!button.specialButton)
+                        {
+                           ;
+                            button.isActive = true;
+                        }
+                     
+                    }
+                }
             }
         }
+    }
 
+    public void Register()
+    {
+        userPanel.PlayPopOutSequence();
     }
 
     public void RestartGame()
     {
-        // Reset the game state here
-        timeRemaining = 300f; // Reset timer to 5:00
+        timeRemaining = 300f;
         timerRunning = true;
         gameOver = false;
-
-        // Add any additional logic to reset the game state, such as resetting player health, score, etc.
     }
-    // Update is called once per frame
+
     void Update()
     {
+        HandleCursorHover();
 
         if (!timerRunning) return;
-
         timeRemaining -= Time.deltaTime;
-
         if (timeRemaining <= 0)
         {
             timeRemaining = 0;
             timerRunning = false;
             OnTimerEnd();
         }
-
         CanvasManager.instance.UpdateTimerUI(timeRemaining);
         OnClick();
     }

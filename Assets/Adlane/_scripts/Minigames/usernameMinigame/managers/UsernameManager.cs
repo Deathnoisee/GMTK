@@ -17,7 +17,7 @@ public class UsernameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TMP_Text promptText;
     [SerializeField] private TMP_Text collectedText;
-    [SerializeField] private TMP_Text heartsText;
+
     [SerializeField] private TMP_Text TutorialText;
     [SerializeField] private float tutorialDisplayTime = 2f;
     [SerializeField] private float fadeSpeed = 2f;
@@ -25,6 +25,12 @@ public class UsernameManager : MonoBehaviour
     [Header("Rounds")]
     [SerializeField] private LetterRound[] rounds;
     [SerializeField] private LettersManager lettersManager;
+
+    public InputField usernameField;
+
+    public InputField nextInputField;
+
+    public Panel mypanel;
 
 
     [Header("Health")]
@@ -49,7 +55,7 @@ public class UsernameManager : MonoBehaviour
 
         collectedLetters = "";
         BeginRound(0);
-        UpdateHeartsText();
+        CanvasManager.instance.SpawnHeart(heartsLeft);
     }
 
 
@@ -157,7 +163,7 @@ public class UsernameManager : MonoBehaviour
         if (collectedText != null)
             collectedText.text = collectedLetters;
 
-        UpdateHeartsText();
+        
     }
     public bool TryCollectLetter(string value)
     {
@@ -254,22 +260,20 @@ public class UsernameManager : MonoBehaviour
     private void TakeDamage()
     {
         heartsLeft--;
-        UpdateHeartsText();
+        CanvasManager.instance.UpdateheartUI();
 
         if (heartsLeft <= 0)
             LoseGame();
     }
 
-    private void UpdateHeartsText()
-    {
-        if (heartsText != null)
-            heartsText.text = $"Hearts: {heartsLeft}/{maxHearts}";
-    }
+   
 
     private void WinGame()
     {
         if (lettersManager != null)
             lettersManager.StopSpawning();
+        CanvasManager.instance.DesactivateHearts();
+        returnToMenu();
 
         Debug.Log("Username minigame complete!");
     }
@@ -291,9 +295,14 @@ public class UsernameManager : MonoBehaviour
     }
 
     // extend this function ela 7sab wch tes7a9 fel menu nano
-    public String returnToMenu()
+    public void returnToMenu()
     {
-        return collectedLetters;
+
+        usernameField.inputText = collectedLetters;
+        usernameField.displayText.text = collectedLetters;
+        usernameField.displayText.alpha = 1f;
+        nextInputField.gameObject.GetComponent<Button>().isActive = false;
+        mypanel.PlayPopOutSequence();
     }
 
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Heart : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class Heart : MonoBehaviour
     public Ease popEase = Ease.OutBack;
 
     private Vector3 originalScale;
+
+    public Sprite deadSprite;
 
     void Awake()
     {
@@ -16,6 +19,11 @@ public class Heart : MonoBehaviour
     void OnEnable()
     {
         PlayPopIn();
+    }
+
+    public void ChangeSprite()
+    {
+        this.gameObject.GetComponent<Image>().sprite = deadSprite;
     }
 
     public void PlayPopIn()

@@ -7,27 +7,32 @@ public class ContainerMover : MonoBehaviour
     [SerializeField] private Vector2 boundaryXnY = new Vector2(6.8f, 0f);
 
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            if (transform.position.x < -boundaryXnY.x) return;
-            MoveLeft();
-        }
+    public UsernameManager usernameManager;
 
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+    private Rigidbody2D rb;
+    public bool started;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+
+    void Move()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        Vector2 movement = new Vector2(moveHorizontal, 0f);
+        rb.linearVelocity = movement * moveSpeed;
+        if (moveHorizontal != 0 && !started)
         {
-            if (transform.position.x > boundaryXnY.x) return;
-            MoveRight();
+            started = true;
+           usernameManager.BeginGame();
         }
     }
 
-    private void MoveLeft()
-    {
-        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-    }
-    private void MoveRight()
-    {
-        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-    }
+   
 }

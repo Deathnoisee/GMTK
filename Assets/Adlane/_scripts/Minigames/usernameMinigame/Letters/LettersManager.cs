@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class LettersManager : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class LettersManager : MonoBehaviour
 
     private List<GameObject> aliveLetters = new List<GameObject>();
     private Coroutine spawnRoutine;
+
+    private void Start()
+    {
+        
+    }
 
     public void StartSpawning()
     {
@@ -57,20 +63,24 @@ public class LettersManager : MonoBehaviour
             return;
 
         bool wantValid = Random.value < validLetterChance;
-
         if (!usernameManager.TryGetSpawnLetter(wantValid, out char letter))
             return;
 
         Bounds b = spawnArea.bounds;
         float x = Random.Range(b.min.x, b.max.x);
         float y = b.max.y + spawnAboveBoundsOffset;
-
         Vector3 spawnPos = new Vector3(x, y, 0f);
+
         GameObject obj = Instantiate(letterPrefab, spawnPos, Quaternion.identity, lettersParent);
 
         TMP_Text text = obj.GetComponentInChildren<TMP_Text>();
         if (text != null)
             text.text = letter.ToString();
+
+        // Pop-in animation
+        Vector3 targetScale = obj.transform.localScale;
+        obj.transform.localScale = Vector3.zero;
+        obj.transform.DOScale(targetScale, 0.3f).SetEase(Ease.OutBack);
 
         aliveLetters.Add(obj);
     }

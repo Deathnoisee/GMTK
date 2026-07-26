@@ -5,7 +5,7 @@ using UnityEngine;
 public class PasswordManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private TMP_Text passwordInput;
+    [SerializeField] private InputField passwordInput;
     [SerializeField] private TMP_Text passwordStrengthText;
     [SerializeField] private Color incorrectColor = Color.red;
     [SerializeField] private Color correctColor = Color.green;
@@ -14,9 +14,18 @@ public class PasswordManager : MonoBehaviour
     [SerializeField] private float checkInterval = 0.15f;
 
 
+
+
+    public Panel myPanel;
+
+    public InputField passwordInputField;
+    public InputField nextInput;
+
+
+
     private void Start()
     {
-
+        StartCheckingPassword();
     }
     // Call this method to start checking the password input nano
     public void StartCheckingPassword()
@@ -28,7 +37,7 @@ public class PasswordManager : MonoBehaviour
     {
         while (true)
         {
-            string text = passwordInput != null ? passwordInput.text : string.Empty;
+            string text = passwordInput != null ? passwordInput.inputText : string.Empty;
 
             if (IsCurrentStepValid(text))
             {
@@ -43,7 +52,7 @@ public class PasswordManager : MonoBehaviour
 
     private bool IsCurrentStepValid(string text)
     {
-
+        
         if (!(text.Length >= 3))
         {
             SetText("Password must be at least 3 characters long.", incorrectColor);
@@ -94,6 +103,12 @@ public class PasswordManager : MonoBehaviour
     // Extend this method nano to handle win condition when the password meets all requirements
     private void win()
     {
+        passwordInputField.inputText = passwordInput.inputText;
+        passwordInputField.displayText.text = passwordInput.inputText;
+        passwordInputField.displayText.alpha = 1f;
+        nextInput.gameObject.GetComponent<Button>().isActive = false;
+        myPanel.PlayPopOutSequence();
+
         Debug.Log("Password accepted!");
     }
 

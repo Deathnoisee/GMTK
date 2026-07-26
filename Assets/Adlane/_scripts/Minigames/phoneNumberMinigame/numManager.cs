@@ -16,10 +16,16 @@ public class numManager : MonoBehaviour
     [SerializeField] private Color correctColor = Color.green;
 
     private int currentStep = 0;
+    private bool isComplete = false;
+
+
+    public InputField phoneInput;
+    public Panel myPanel;
+    public Button RegisterButton;
 
     private void Start()
     {
-
+        BeginStep(0);
     }
 
     // Call this method to start the minigame nano EBDA B BeginStep(0) !!
@@ -42,6 +48,8 @@ public class numManager : MonoBehaviour
 
     public void CheckStep()
     {
+        Debug.Log("check");
+
         if (currentStep < 0 || currentStep >= targetValues.Length)
             return;
 
@@ -67,8 +75,47 @@ public class numManager : MonoBehaviour
     private void Win()
     {
         Debug.Log("Phone number complete!");
+        isComplete = true;
+        string final = "987-654-321";
+        phoneInput.inputText = final;
+        phoneInput.displayText.text = final;
+        phoneInput.displayText.alpha = 1f;
+        RegisterButton.isActive = false;
+        myPanel.PlayPopOutSequence();
 
         if (calculations != null)
             calculations.enabled = false;
+    }
+
+    // Hook this up to a Restart button's OnClick — resets ONLY the current step
+    public void RestartCurrentStep()
+    {
+        Debug.Log("Restarting current step: " + currentStep);
+        BeginStep(currentStep);
+    }
+
+    // Hook this up to a Restart button's OnClick
+    public void Restart()
+    {
+        Debug.Log("Restarting numManager minigame");
+
+        isComplete = false;
+        currentStep = 0;
+
+        // Reset every step's text/color back to its starting state, not just the current one
+        for (int i = 0; i < stepValueTexts.Length; i++)
+        {
+            if (stepValueTexts[i] != null && i < startValues.Length)
+            {
+                stepValueTexts[i].text = startValues[i].ToString();
+                stepValueTexts[i].color = Color.black;
+            }
+        }
+        stepValueTexts[currentStep].color=normalColor;
+
+        if (calculations != null)
+            calculations.enabled = true;
+
+        BeginStep(0);
     }
 }
