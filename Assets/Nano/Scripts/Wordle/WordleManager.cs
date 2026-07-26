@@ -23,12 +23,17 @@ public class WordleManager : MonoBehaviour
     private bool waitingForNewGuess = false;
     private bool gameOver = false;
 
-    public InputField emailInput;
+    
+
 
     public Panel panel;
+    public InputField emailInput;
+    public InputField nextInput;
 
     private WordlTile[] currentTiles;
     private int currentWordLength;
+
+    
 
     void Start()
     {
@@ -197,6 +202,7 @@ public class WordleManager : MonoBehaviour
                 emailInput.displayText.text = finalResult;
                 emailInput.displayText.fontSize = 8;
                 emailInput.displayText.alpha = 1f;
+                nextInput.gameObject.GetComponent<Button>().isActive = false;
 
                 Debug.Log("All stages complete! Final result: " + finalResult);
                 CanvasManager.instance.DesactivateHearts();

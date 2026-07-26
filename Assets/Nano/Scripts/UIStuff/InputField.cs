@@ -5,18 +5,15 @@ public class InputField : MonoBehaviour
 {
     public TextMeshPro displayText; // drag a TextMeshPro (3D, not UI) object here
     public string inputText = "";
-
-
-
     public bool isLevelInput = true; // Flag to check if the level is in input mode
-
+    public bool password = false;   // if true, display masks input as asterisks
     bool isCompleted = false; // Flag to check if the level is completed
 
     void Start()
     {
         displayText = GetComponentInChildren<TextMeshPro>();
-
     }
+
     void Update()
     {
         if (!isLevelInput)
@@ -37,11 +34,21 @@ public class InputField : MonoBehaviour
                     inputText += c;
                 }
             }
+
+            UpdateDisplay();
+        }
+    }
+
+    void UpdateDisplay()
+    {
+        if (password)
+        {
+            displayText.text = new string('*', inputText.Length) ; // masked, with fake cursor blink
+        }
+        else
+        {
             displayText.text = inputText + "_"; // fake cursor blink
         }
-
-
-
     }
 
     void Submit()

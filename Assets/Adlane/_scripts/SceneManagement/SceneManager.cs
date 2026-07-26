@@ -3,6 +3,8 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour
 {
     private static SceneManager _instance;
+
+    public GameObject animation;
     private void Awake()
     {
 
@@ -15,6 +17,11 @@ public class SceneManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void StartAnimation()
+    {
+        animation.SetActive(true);
     }
 
     public void LoadScene(string sceneName)

@@ -30,7 +30,7 @@ public class CanvasManager : MonoBehaviour
             return;
         }
 
-        HearthGroup.transform.GetChild(lastIndex).gameObject.GetComponent<Heart>().ChangeSprite();
+        HearthGroup.transform.GetChild(lastIndex).gameObject.GetComponent<Heart>().PlayPopOut();
     }
 
     public void GameOverPanel()
@@ -48,7 +48,7 @@ public class CanvasManager : MonoBehaviour
         for (int i = HearthGroup.transform.childCount - 1; i >= 0; i--)
         {
             Debug.Log("destroyed heart");
-            Destroy(HearthGroup.transform.GetChild(i).gameObject);
+            HearthGroup.transform.GetChild(i).gameObject.GetComponent<Heart>().PlayPopOut();
         }
     }
 

@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2.75, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.317}
+  m_SizeDelta: {x: 2.75, y: 1.6341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5066291020594998571
 MeshRenderer:
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: A
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7607958121f97346bf5042523d50fbb, type: 2}
   m_sharedMaterial: {fileID: -1790058720796146207, guid: a7607958121f97346bf5042523d50fbb, type: 2}
@@ -135,8 +135,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6
-  m_fontSizeBase: 6
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -198,7 +198,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.15
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

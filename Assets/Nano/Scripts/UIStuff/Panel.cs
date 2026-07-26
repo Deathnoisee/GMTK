@@ -1,21 +1,19 @@
 using DG.Tweening;
 using UnityEngine;
+using TMPro;
 
 public class Panel : MonoBehaviour
 {
     public Transform background;
     public Transform contentParent; // holds all the child objects (at any depth) to stagger in
-
     public GameObject parent;
-
     public float backgroundPopDuration = 0.3f;
     public float childPopDuration = 0.25f;
     public float staggerDelay = 0.08f; // gap between each child popping in
     public Ease popEase = Ease.OutBack;
     public Ease popOutEase = Ease.InBack;
-
     private Vector3 backgroundOriginalScale;
-    private SpriteRenderer[] allSprites;
+    private Transform[] allAnimatedElements; // sprites AND TextMeshPro objects
     private Vector3[] childOriginalScales;
 
     void Awake()
@@ -23,13 +21,28 @@ public class Panel : MonoBehaviour
         backgroundOriginalScale = background.localScale;
         parent = this.transform.parent.gameObject;
 
-        // Grab every SpriteRenderer nested anywhere under contentParent, not just direct children
-        allSprites = contentParent.GetComponentsInChildren<SpriteRenderer>(true);
+        // Grab every SpriteRenderer AND TextMeshPro nested anywhere under contentParent
+        SpriteRenderer[] sprites = contentParent.GetComponentsInChildren<SpriteRenderer>(true);
+        TextMeshPro[] texts = contentParent.GetComponentsInChildren<TextMeshPro>(true);
 
-        childOriginalScales = new Vector3[allSprites.Length];
-        for (int i = 0; i < allSprites.Length; i++)
+        allAnimatedElements = new Transform[sprites.Length + texts.Length];
+
+        int index = 0;
+        for (int i = 0; i < sprites.Length; i++)
         {
-            childOriginalScales[i] = allSprites[i].transform.localScale;
+            allAnimatedElements[index] = sprites[i].transform;
+            index++;
+        }
+        for (int i = 0; i < texts.Length; i++)
+        {
+            allAnimatedElements[index] = texts[i].transform;
+            index++;
+        }
+
+        childOriginalScales = new Vector3[allAnimatedElements.Length];
+        for (int i = 0; i < allAnimatedElements.Length; i++)
+        {
+            childOriginalScales[i] = allAnimatedElements[i].localScale;
         }
     }
 
@@ -48,11 +61,11 @@ public class Panel : MonoBehaviour
         // Reset everything to zero first
         background.localScale = Vector3.zero;
 
-        for (int i = 0; i < allSprites.Length; i++)
+        for (int i = 0; i < allAnimatedElements.Length; i++)
         {
-            if (allSprites[i] != null)
+            if (allAnimatedElements[i] != null)
             {
-                allSprites[i].transform.localScale = Vector3.zero;
+                allAnimatedElements[i].localScale = Vector3.zero;
             }
         }
 
@@ -61,13 +74,13 @@ public class Panel : MonoBehaviour
         // Background pops in first
         seq.Append(background.DOScale(backgroundOriginalScale, backgroundPopDuration).SetEase(popEase));
 
-        // Then each sprite pops in with a staggered overlap
+        // Then each element pops in with a staggered overlap
         float startTime = backgroundPopDuration;
-        for (int i = 0; i < allSprites.Length; i++)
+        for (int i = 0; i < allAnimatedElements.Length; i++)
         {
-            if (allSprites[i] == null) continue;
+            if (allAnimatedElements[i] == null) continue;
 
-            Transform t = allSprites[i].transform;
+            Transform t = allAnimatedElements[i];
             Vector3 targetScale = childOriginalScales[i];
 
             seq.Insert(startTime, t.DOScale(targetScale, childPopDuration).SetEase(popEase));
@@ -79,19 +92,19 @@ public class Panel : MonoBehaviour
     {
         Sequence seq = DOTween.Sequence();
 
-        // Sprites pop out first, in reverse order, staggered
+        // Elements pop out first, in reverse order, staggered
         float startTime = 0f;
-        for (int i = allSprites.Length - 1; i >= 0; i--)
+        for (int i = allAnimatedElements.Length - 1; i >= 0; i--)
         {
-            if (allSprites[i] == null) continue;
+            if (allAnimatedElements[i] == null) continue;
 
-            Transform t = allSprites[i].transform;
+            Transform t = allAnimatedElements[i];
 
             seq.Insert(startTime, t.DOScale(Vector3.zero, childPopDuration).SetEase(popOutEase));
             startTime += staggerDelay;
         }
 
-        // Background pops out last, after sprites have started/finished
+        // Background pops out last, after elements have started/finished
         seq.Insert(startTime, background.DOScale(Vector3.zero, backgroundPopDuration).SetEase(popOutEase));
 
         seq.OnComplete(() =>
@@ -99,7 +112,6 @@ public class Panel : MonoBehaviour
             onComplete?.Invoke();
             parent.SetActive(false);
             gameObject.SetActive(false);
-            
         });
     }
 }
