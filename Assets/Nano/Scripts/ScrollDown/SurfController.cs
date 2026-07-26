@@ -13,6 +13,9 @@ public class SurfController : MonoBehaviour
     public int health = 3;
     public float speed = 5f;
 
+    public ObstacleSpawner obstacleSpawner;
+    public Panel myPanel;
+    public GameObject nextLevel;
     void Update()
     {
         if (isDead || completed || !started)
@@ -45,6 +48,8 @@ public class SurfController : MonoBehaviour
             if (!spawnedHeart)
             {
                 CanvasManager.instance.SpawnHeart(health);
+                CanvasManager.instance.SpawnScrollbar();
+
                 spawnedHeart = true;
             }
         }
@@ -53,21 +58,32 @@ public class SurfController : MonoBehaviour
     public void AddCompletion(float amount)
     {
         completionCount += amount;
+        CanvasManager.instance.UpdateScrollbar(completionCount, completionTarget);
 
         if (completionCount >= completionTarget)
         {
             completionCount = completionTarget;
-            Win();
+            obstacleSpawner.SpawnWinner();
         }
     }
+
 
     public void Win()
     {
         if (completed) return; // avoid running this more than once
 
         completed = true;
-        Debug.Log("Level Complete!");
+        CanvasManager.instance.HideScrollbar();
+        obstacleSpawner.canSpawn = false;
         CanvasManager.instance.DesactivateHearts();
+        myPanel.PlayPopOutSequence(() =>
+        {
+            if (nextLevel != null)
+            {
+                nextLevel.SetActive(true);
+            }
+        });
+
         // You can add any additional logic here for when the level is complete
     }
 
@@ -90,6 +106,10 @@ public class SurfController : MonoBehaviour
         {
             Die();
             Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("Winner"))
+        {
+            Win();
         }
     }
 

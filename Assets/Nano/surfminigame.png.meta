@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: f16cbd1d58c966c4d830c6494dae100e
+guid: d1ea4995a540bdb42bc5645dffda9047
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7146316350413365306
-    second: Newpanel_0
+      213: -7692720160917482074
+    second: surfminigame_0
+  - first:
+      213: 2182706004627897752
+    second: surfminigame_1
+  - first:
+      213: 7819466398084209340
+    second: surfminigame_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,23 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Newpanel_0
+      name: surfminigame_0
       rect:
         serializedVersion: 2
-        x: 97
-        y: 59
-        width: 716
-        height: 503
+        x: 56
+        y: 394
+        width: 148
+        height: 159
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3064fe9bd0dc2360800000000000000
-      internalID: 7146316350413365306
+      spriteID: 6a5170c75c7fd3590800000000000000
+      internalID: -7692720160917482074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: surfminigame_1
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 394
+        width: 249
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89d35f6fb878a4e10800000000000000
+      internalID: 2182706004627897752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: surfminigame_2
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 404
+        width: 123
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cba99ee7243548c60800000000000000
+      internalID: 7819466398084209340
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: e1a435cb4a0f2d847b7d632a47f04f92
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +196,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Newpanel_0: 7146316350413365306
+      surfminigame_0: -7692720160917482074
+      surfminigame_1: 2182706004627897752
+      surfminigame_2: 7819466398084209340
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
