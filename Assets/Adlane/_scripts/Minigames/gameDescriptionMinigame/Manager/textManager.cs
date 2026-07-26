@@ -18,6 +18,19 @@ public class textManager : MonoBehaviour
     public string[] typedWords;
 
     // nano
+    public void startGame()
+    {
+        if (customInputField != null)
+            customInputField.gameObject.SetActive(true);
+
+        if (collectedText != null)
+            collectedText.text = "";
+
+        if (promptText != null)
+            promptText.text = prompt;
+
+        lastCheckedText = "";
+    }
     public void SetPrompt(string newPrompt)
     {
         prompt = newPrompt;

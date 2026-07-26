@@ -19,7 +19,7 @@ public class yesOrNo : MonoBehaviour
         else
         {
             Debug.Log("You Lose");
-            sentenceManager.totalTries--;
+            CameraShake.instance.ShakeMedium();
         }
 
         Destroy(collision.gameObject);
