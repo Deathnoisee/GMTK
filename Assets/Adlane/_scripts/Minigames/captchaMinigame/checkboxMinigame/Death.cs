@@ -8,7 +8,6 @@ public class Death : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            sentenceManager.totalTries--;
             Destroy(this.gameObject);
         }
     }

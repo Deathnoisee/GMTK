@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class sentenceManager : MonoBehaviour
 {
-    [Header("Settings")]
-    public int totalTries = 3;
 
     [Header("UI")]
     [SerializeField] private TMP_Text sentenceText;
@@ -57,10 +55,6 @@ public class sentenceManager : MonoBehaviour
     private void Win()
     {
         sentenceText.text = "You are a human!";
-    }
-    public void Lose()
-    {
-        sentenceText.text = "You are a robot!";
     }
 }
 [System.Serializable]
