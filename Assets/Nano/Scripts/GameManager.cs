@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using SmallHedge.SoundManager;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public Vector2 cursorHotspot = Vector2.zero;
 
     private bool isHoveringButton = false;
+
+
+    public bool GameOver;
 
 
     public Panel userPanel;
@@ -105,9 +108,10 @@ public class GameManager : MonoBehaviour
                     if (button.isActive == false )
                     {
                         button?.onClick.Invoke();
+                        SoundManager.PlaySound(SoundType.click);
                         if (!button.specialButton)
                         {
-                           ;
+                            
                             button.isActive = true;
                         }
                      

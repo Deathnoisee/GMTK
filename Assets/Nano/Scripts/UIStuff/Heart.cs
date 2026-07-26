@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using SmallHedge.SoundManager;
 
 public class Heart : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class Heart : MonoBehaviour
     {
         transform.localScale = Vector3.zero;
         transform.DOScale(originalScale, popDuration).SetEase(popEase);
+        SoundManager.PlaySound(SoundType.popIn);
         Debug.Log("Heart popped in!");
     }
 
@@ -41,5 +43,6 @@ public class Heart : MonoBehaviour
                 onComplete?.Invoke();
                 Destroy(gameObject);
             });
+        SoundManager.PlaySound(SoundType.popOut);
     }
 }

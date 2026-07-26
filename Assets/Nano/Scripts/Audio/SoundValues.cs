@@ -8,6 +8,19 @@ namespace SmallHedge.SoundManager
         shoot,
         click,
         Music,
+        error,
+        right,
+        damage,
+        type,
+        popIn,
+        popOut,
+        alaram,
+        wakeUp,
+        Running,
+        yawn,
+        powerOn,
+        powerOff,
+        crying
 
 
 

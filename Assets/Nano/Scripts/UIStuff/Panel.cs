@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using TMPro;
+using SmallHedge.SoundManager;
 
 public class Panel : MonoBehaviour
 {
@@ -73,6 +74,7 @@ public class Panel : MonoBehaviour
 
         // Background pops in first
         seq.Append(background.DOScale(backgroundOriginalScale, backgroundPopDuration).SetEase(popEase));
+        seq.InsertCallback(0f, () => SoundManager.PlaySound(SoundType.popIn));
 
         // Then each element pops in with a staggered overlap
         float startTime = backgroundPopDuration;
@@ -84,6 +86,11 @@ public class Panel : MonoBehaviour
             Vector3 targetScale = childOriginalScales[i];
 
             seq.Insert(startTime, t.DOScale(targetScale, childPopDuration).SetEase(popEase));
+
+            // InsertCallback fires the sound exactly when this element STARTS popping,
+            // instead of PlaySound running immediately when the loop builds the sequence.
+            seq.InsertCallback(startTime, () => SoundManager.PlaySound(SoundType.popIn));
+
             startTime += staggerDelay;
         }
     }
@@ -101,11 +108,14 @@ public class Panel : MonoBehaviour
             Transform t = allAnimatedElements[i];
 
             seq.Insert(startTime, t.DOScale(Vector3.zero, childPopDuration).SetEase(popOutEase));
+            seq.InsertCallback(startTime, () => SoundManager.PlaySound(SoundType.popOut));
+
             startTime += staggerDelay;
         }
 
         // Background pops out last, after elements have started/finished
         seq.Insert(startTime, background.DOScale(Vector3.zero, backgroundPopDuration).SetEase(popOutEase));
+        seq.InsertCallback(startTime, () => SoundManager.PlaySound(SoundType.popOut));
 
         seq.OnComplete(() =>
         {

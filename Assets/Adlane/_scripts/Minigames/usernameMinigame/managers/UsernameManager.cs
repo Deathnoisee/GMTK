@@ -1,7 +1,8 @@
+using SmallHedge.SoundManager;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using System.Collections;
 using UnityEngine;
 
 [Serializable]
@@ -180,6 +181,7 @@ public class UsernameManager : MonoBehaviour
             return false;
         }
 
+        SoundManager.PlaySound(SoundType.type);
         collectedLetters += c;
         if (collectedText != null)
             collectedText.text = collectedLetters;
@@ -260,6 +262,8 @@ public class UsernameManager : MonoBehaviour
     private void TakeDamage()
     {
         heartsLeft--;
+        CameraShake.instance.ShakeMedium();
+        SoundManager.PlaySound(SoundType.error);
         CanvasManager.instance.UpdateheartUI();
 
         if (heartsLeft <= 0)

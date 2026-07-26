@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6df621ca141196e49a9157e58ac024a9
+guid: 592bcea12a2bcef40a00000045548983
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8429204525373468848
-    second: gamejamPage_0
+      213: -4645151835394835356
+    second: let'sgoooo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gamejamPage_0
+      name: let'sgoooo_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05fcffdd423750b80800000000000000
-      internalID: -8429204525373468848
+      spriteID: 46c798b440b198fb0800000000000000
+      internalID: -4645151835394835356
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gamejamPage_0: -8429204525373468848
+      let'sgoooo_0: -4645151835394835356
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

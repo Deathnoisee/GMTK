@@ -13,50 +13,85 @@ MonoBehaviour:
   m_Name: Sounds
   m_EditorClassIdentifier: 
   sounds:
+  - name: shoot
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: click
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 74551216c08406d468129faedcd431e3, type: 3}
+    - {fileID: 8300000, guid: c401050ca797d6a4695697bc061587f4, type: 3}
+    - {fileID: 8300000, guid: c56c3ffa6062bf44e97120eda5ff4f89, type: 3}
   - name: Music
     volume: 1
     mixer: {fileID: 0}
     sounds:
-    - {fileID: 8300000, guid: ba032b10174f8b1478459693b39d815b, type: 3}
-    - {fileID: 8300000, guid: 6b8bbc92328bb5c4699a3fc24a623028, type: 3}
-    - {fileID: 8300000, guid: 3b22015487e9565489ce017a7f2ada31, type: 3}
-    - {fileID: 8300000, guid: 1ca2144859df6084383378e67a8e464d, type: 3}
-  - name: Menu
-    volume: 1
-    mixer: {fileID: 0}
-    sounds: []
-  - name: Door
-    volume: 1
-    mixer: {fileID: 0}
-    sounds:
-    - {fileID: 8300000, guid: 0f55d4647d4c3de47be3bdeccb8d6e0f, type: 3}
-    - {fileID: 8300000, guid: fa33ca274d136f04f8e20298a8ab7535, type: 3}
-    - {fileID: 8300000, guid: fa32a172cb4b02342bdfb365ee1dc09b, type: 3}
-  - name: shooting
-    volume: 1
-    mixer: {fileID: 0}
-    sounds:
-    - {fileID: 8300000, guid: 7a67ece47e4324b4aa13882e5d25299a, type: 3}
-    - {fileID: 8300000, guid: 98836bfebaaef1b49b34c18cac462304, type: 3}
-    - {fileID: 8300000, guid: 80e8ce0d8e246d44ba42a08bec52383f, type: 3}
-    - {fileID: 8300000, guid: ef106834fbeb7e048b1fb65ac18dfdfe, type: 3}
-  - name: dying
-    volume: 1
-    mixer: {fileID: 0}
-    sounds:
-    - {fileID: 8300000, guid: 48090b84e64ce374a8afed0840851046, type: 3}
-  - name: power_on
-    volume: 1
-    mixer: {fileID: 0}
-    sounds:
-    - {fileID: 8300000, guid: 69b23dc520084f64aa6317f6756d85c9, type: 3}
-    - {fileID: 8300000, guid: 79f1004a70d523242a497d591a083557, type: 3}
-    - {fileID: 8300000, guid: a22c54a5afa2e6b4e969768b2aee3850, type: 3}
-    - {fileID: 8300000, guid: 15a4037b6fa0d184da78ccb51df629fb, type: 3}
+    - {fileID: 8300000, guid: 4774fb3c4502ba645923d3637ebf1144, type: 3}
   - name: error
     volume: 1
     mixer: {fileID: 0}
     sounds:
-    - {fileID: 8300000, guid: bfb6a736c589c8749bed27328ad657d5, type: 3}
-    - {fileID: 8300000, guid: 0dbad2c863370cf4595f2781f06a9cd5, type: 3}
-    - {fileID: 8300000, guid: 60ed7f5b73cdb89499eaa349e2ed3d91, type: 3}
+    - {fileID: 8300000, guid: dc6e3727a2fe1fc42b633a7c2ea626ae, type: 3}
+    - {fileID: 8300000, guid: 584d018d315afb54297038acb54cab5a, type: 3}
+    - {fileID: 8300000, guid: 4cf776d4dbb297240ac7f77b05e1fc98, type: 3}
+    - {fileID: 8300000, guid: a0941bb171c2a1249bff27bf0c56ae2b, type: 3}
+  - name: right
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 7e4cc122579a6664c8b7324674355099, type: 3}
+  - name: damage
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: type
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 1e303bdf70c1e2e43a3e909fb127c457, type: 3}
+    - {fileID: 8300000, guid: 04c8b90edbc16664db836ae5b5093984, type: 3}
+  - name: popIn
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 59d6389e2329c35419dc54a6c7e44c6b, type: 3}
+    - {fileID: 8300000, guid: e422db3915660ab418a75b88ec06d977, type: 3}
+    - {fileID: 8300000, guid: da750e74fa9aca446b0c8047b65dd19f, type: 3}
+    - {fileID: 8300000, guid: 47b2942692cf7df488dd502d8875c0a7, type: 3}
+  - name: popOut
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: 59d6389e2329c35419dc54a6c7e44c6b, type: 3}
+  - name: alaram
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: wakeUp
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: Running
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: ee22e89622517a143a124469ebafd56b, type: 3}
+  - name: yawn
+    volume: 1
+    mixer: {fileID: 0}
+    sounds:
+    - {fileID: 8300000, guid: b6275f3c0f19ced4bb93f045a18f624a, type: 3}
+  - name: powerOn
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: powerOff
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []
+  - name: crying
+    volume: 1
+    mixer: {fileID: 0}
+    sounds: []

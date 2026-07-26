@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using TMPro;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ public class InputField : MonoBehaviour
         {
             foreach (char c in Input.inputString)
             {
+                SoundManager.PlaySound(SoundType.type);
                 if (c == '\b')
                 {
                     if (inputText.Length > 0)

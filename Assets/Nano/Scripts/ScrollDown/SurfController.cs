@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using UnityEngine;
 
 public class SurfController : MonoBehaviour
@@ -90,7 +91,9 @@ public class SurfController : MonoBehaviour
     public void Die()
     {
         health--;
-        CameraShake.instance.ShakeSmall();
+
+        CameraShake.instance.ShakeMedium();
+        SoundManager.PlaySound(SoundType.damage);
         CanvasManager.instance.UpdateheartUI();
         if (health <= 0)
         {

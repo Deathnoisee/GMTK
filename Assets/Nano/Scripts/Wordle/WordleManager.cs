@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using UnityEngine;
 
 public class WordleManager : MonoBehaviour
@@ -86,6 +87,7 @@ public class WordleManager : MonoBehaviour
 
         foreach (char c in Input.inputString)
         {
+            SoundManager.PlaySound(SoundType.type);
             if (c == '\b')
             {
                 Backspace();
@@ -188,6 +190,7 @@ public class WordleManager : MonoBehaviour
 
         if (guess == targetWord)
         {
+            SoundManager.PlaySound(SoundType.right);
             Debug.Log("Stage " + (currentStageIndex + 1) + " solved!");
 
             // Build "word1_word2_word3" format
@@ -216,6 +219,13 @@ public class WordleManager : MonoBehaviour
             }
             return;
         }
+        else
+        {
+            SoundManager.PlaySound(SoundType.error);
+            CameraShake.instance.ShakeMedium();
+        }
+
+       
 
         currentAttempt++;
 
