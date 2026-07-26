@@ -15,6 +15,7 @@ public class Panel : MonoBehaviour
     public Ease popOutEase = Ease.InBack;
     private Vector3 backgroundOriginalScale;
     private Transform[] allAnimatedElements; // sprites AND TextMeshPro objects
+    private TextMeshPro[] elementTextComponents; // null entry = not a text element (e.g. a sprite)
     private Vector3[] childOriginalScales;
 
     void Awake()
@@ -27,16 +28,19 @@ public class Panel : MonoBehaviour
         TextMeshPro[] texts = contentParent.GetComponentsInChildren<TextMeshPro>(true);
 
         allAnimatedElements = new Transform[sprites.Length + texts.Length];
+        elementTextComponents = new TextMeshPro[sprites.Length + texts.Length];
 
         int index = 0;
         for (int i = 0; i < sprites.Length; i++)
         {
             allAnimatedElements[index] = sprites[i].transform;
+            elementTextComponents[index] = null; // not a text element
             index++;
         }
         for (int i = 0; i < texts.Length; i++)
         {
             allAnimatedElements[index] = texts[i].transform;
+            elementTextComponents[index] = texts[i];
             index++;
         }
 
@@ -45,6 +49,17 @@ public class Panel : MonoBehaviour
         {
             childOriginalScales[i] = allAnimatedElements[i].localScale;
         }
+    }
+
+    private bool ShouldSkip(int index)
+    {
+        if (allAnimatedElements[index] == null) return true;
+
+        // Skip TextMeshPro elements that currently have no text
+        TextMeshPro tmp = elementTextComponents[index];
+        if (tmp != null && string.IsNullOrEmpty(tmp.text)) return true;
+
+        return false;
     }
 
     void OnEnable()
@@ -64,7 +79,7 @@ public class Panel : MonoBehaviour
 
         for (int i = 0; i < allAnimatedElements.Length; i++)
         {
-            if (allAnimatedElements[i] != null)
+            if (!ShouldSkip(i))
             {
                 allAnimatedElements[i].localScale = Vector3.zero;
             }
@@ -80,7 +95,7 @@ public class Panel : MonoBehaviour
         float startTime = backgroundPopDuration;
         for (int i = 0; i < allAnimatedElements.Length; i++)
         {
-            if (allAnimatedElements[i] == null) continue;
+            if (ShouldSkip(i)) continue; // skip empty text elements (and null/destroyed ones)
 
             Transform t = allAnimatedElements[i];
             Vector3 targetScale = childOriginalScales[i];
@@ -103,7 +118,7 @@ public class Panel : MonoBehaviour
         float startTime = 0f;
         for (int i = allAnimatedElements.Length - 1; i >= 0; i--)
         {
-            if (allAnimatedElements[i] == null) continue;
+            if (ShouldSkip(i)) continue;
 
             Transform t = allAnimatedElements[i];
 

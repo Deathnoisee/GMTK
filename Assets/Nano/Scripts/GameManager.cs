@@ -12,14 +12,17 @@ public class GameManager : MonoBehaviour
     public Texture2D defaultCursorTexture;
     public Texture2D hoverCursorTexture;
     public Vector2 cursorHotspot = Vector2.zero;
-
     private bool isHoveringButton = false;
 
-
     public bool GameOver;
-
-
     public Panel userPanel;
+
+    [Header("Win / Lose")]
+    public GameObject winPanelObject;  // has a Panel component, auto pops in via OnEnable
+    public GameObject losePanelObject; // has a Panel component, auto pops in via OnEnable
+
+    private bool win = false;
+    private bool resultHandled = false; // prevents this from firing more than once
 
     public void Awake()
     {
@@ -45,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Timer has ended!");
         gameOver = true;
+        TriggerLose();
     }
 
     public void TestClcick()
@@ -65,11 +69,8 @@ public class GameManager : MonoBehaviour
     {
         Vector3 realMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D hit = Physics2D.OverlapPoint(realMousePos);
-
         bool nowHovering = hit != null && hit.CompareTag("Button");
 
-        // Only swap the texture when the hover state actually changes,
-        // instead of calling SetCursor every single frame
         if (nowHovering && !isHoveringButton)
         {
             isHoveringButton = true;
@@ -105,16 +106,14 @@ public class GameManager : MonoBehaviour
                 Button button = hit.GetComponent<Button>();
                 if (button != null)
                 {
-                    if (button.isActive == false )
+                    if (button.isActive == false)
                     {
                         button?.onClick.Invoke();
                         SoundManager.PlaySound(SoundType.click);
                         if (!button.specialButton)
                         {
-                            
                             button.isActive = true;
                         }
-                     
                     }
                 }
             }
@@ -131,6 +130,78 @@ public class GameManager : MonoBehaviour
         timeRemaining = 300f;
         timerRunning = true;
         gameOver = false;
+        resultHandled = false;
+    }
+
+    // Call this from wherever your win condition is detected (e.g. a minigame's Win())
+    public void TriggerWin()
+    {
+        if (resultHandled) return;
+        resultHandled = true;
+        win = true;
+        gameOver = true;
+
+        CloseActivePanelsThen(() =>
+        {
+            if (winPanelObject != null)
+            {
+                winPanelObject.SetActive(true);
+            }
+        });
+    }
+
+    public void TriggerLose()
+    {
+        if (resultHandled) return;
+        resultHandled = true;
+        win = false;
+        gameOver = true;
+
+        CloseActivePanelsThen(() =>
+        {
+            if (losePanelObject != null)
+            {
+                losePanelObject.SetActive(true);
+            }
+        });
+    }
+
+    /// <summary>
+    /// Finds every currently active Panel in the scene, pops them all out simultaneously,
+    /// then invokes onAllClosed once every single one has finished its pop-out animation.
+    /// </summary>
+    private void CloseActivePanelsThen(System.Action onAllClosed)
+    {
+        Panel[] activePanels = FindObjectsOfType<Panel>();
+
+        System.Collections.Generic.List<Panel> toClose = new System.Collections.Generic.List<Panel>();
+        foreach (Panel p in activePanels)
+        {
+            if (p.gameObject.activeInHierarchy)
+            {
+                toClose.Add(p);
+            }
+        }
+
+        if (toClose.Count == 0)
+        {
+            onAllClosed?.Invoke();
+            return;
+        }
+
+        int remaining = toClose.Count;
+
+        foreach (Panel p in toClose)
+        {
+            p.PlayPopOutSequence(() =>
+            {
+                remaining--;
+                if (remaining <= 0)
+                {
+                    onAllClosed?.Invoke();
+                }
+            });
+        }
     }
 
     void Update()
