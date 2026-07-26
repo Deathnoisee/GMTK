@@ -16,7 +16,7 @@ public class PasswordManager : MonoBehaviour
 
     private void Start()
     {
-
+        StartCheckingPassword();
     }
     // Call this method to start checking the password input nano
     public void StartCheckingPassword()

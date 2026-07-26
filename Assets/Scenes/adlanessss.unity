@@ -6893,7 +6893,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SurfController
   completionCount: 0
   completionTarget: 10
+  completionDuration: 60
   started: 0
+  completed: 0
   health: 3
   speed: 5
 --- !u!61 &1134942562
@@ -9614,6 +9616,9 @@ MonoBehaviour:
   heart: {fileID: 7892209147450024509, guid: 4e0333bac071c134ea0defc047acfff6, type: 3}
   HearthGroup: {fileID: 1249519503}
   timerText: {fileID: 140490747}
+  usedLettersGroup: {fileID: 0}
+  absentTilePrefab: {fileID: 0}
+  presentTilePrefab: {fileID: 0}
 --- !u!1 &1646958077
 GameObject:
   m_ObjectHideFlags: 0
@@ -11431,6 +11436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: leverSwitchMinigame
       objectReference: {fileID: 0}
+    - target: {fileID: 6634185403745664986, guid: 8cfa416779b15a04ebc19e2fdb145a76, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11550,6 +11559,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6194476958013657416, guid: 7a67c8813500c1046bd05410df5b7e63, type: 3}
+      propertyPath: isLevelInput
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8173895788801518052, guid: 7a67c8813500c1046bd05410df5b7e63, type: 3}
       propertyPath: m_Name
       value: passwordMinigame
@@ -11561,7 +11574,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1138779022541169820, guid: 7a67c8813500c1046bd05410df5b7e63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6027919726150705890, guid: 7a67c8813500c1046bd05410df5b7e63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2024118740365780178, guid: 7a67c8813500c1046bd05410df5b7e63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7a67c8813500c1046bd05410df5b7e63, type: 3}
 --- !u!1001 &4275020816268039121
 PrefabInstance:
@@ -12001,7 +12023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2397625204918953154, guid: 9ac4eb6b681a51747a49c436482426f6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2576023679942461636, guid: 9ac4eb6b681a51747a49c436482426f6, type: 3}
       propertyPath: m_LocalScale.y
@@ -12058,13 +12080,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7146979590109524194, guid: 9ac4eb6b681a51747a49c436482426f6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1512892368248440675, guid: 9ac4eb6b681a51747a49c436482426f6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ac4eb6b681a51747a49c436482426f6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
