@@ -4,8 +4,6 @@ public class ObstacleSpawner : MonoBehaviour
 {
     [Header("Obstacles")]
     public GameObject[] obstaclePrefabs; // drag all obstacle variants here
-
-
     public GameObject winner;
 
     [Header("Spawn Timing")]
@@ -21,9 +19,7 @@ public class ObstacleSpawner : MonoBehaviour
     private float timer = 0f;
     private float elapsedSinceStart = 0f;
     private float currentSpawnInterval;
-
-
-    public bool canSpawn = true;    
+    public bool canSpawn = true;
 
     void Start()
     {
@@ -46,19 +42,44 @@ public class ObstacleSpawner : MonoBehaviour
 
         if (timer >= currentSpawnInterval)
         {
-            if (canSpawn) {
-
+            if (canSpawn)
+            {
                 SpawnObstacle();
                 timer = 0f;
             }
-           
         }
     }
-    public void SpawnWinner() {
 
+    public void SpawnWinner()
+    {
         GameObject winnerButoon = Instantiate(winner, transform.position, Quaternion.identity);
         winnerButoon.transform.SetParent(transform);
     }
+
+    /// <summary>
+    /// Stops any further obstacles from spawning. Existing obstacles already in
+    /// the scene are left untouched (they'll keep moving/behave normally until
+    /// destroyed by their own logic, e.g. hitting the player or leaving screen).
+    /// </summary>
+    public void StopSpawning()
+    {
+        canSpawn = false;
+    }
+
+    /// <summary>
+    /// Same as StopSpawning, but also immediately destroys every obstacle
+    /// currently alive in the scene (all children of this spawner).
+    /// </summary>
+    public void StopSpawningAndClearObstacles()
+    {
+        canSpawn = false;
+
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+    }
+
     private void SpawnObstacle()
     {
         if (obstaclePrefabs == null || obstaclePrefabs.Length == 0)

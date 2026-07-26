@@ -176,7 +176,7 @@ public class WordleManager : MonoBehaviour
     {
         if (currentAttempt >= attemptsPerStage)
         {
-            Debug.Log("No more attempts left on this stage!");
+           
             gameOver = true;
             return;
         }
@@ -191,7 +191,7 @@ public class WordleManager : MonoBehaviour
         if (guess == targetWord)
         {
             SoundManager.PlaySound(SoundType.right);
-            Debug.Log("Stage " + (currentStageIndex + 1) + " solved!");
+           
 
             // Build "word1_word2_word3" format
             finalResult = string.IsNullOrEmpty(finalResult)
@@ -207,7 +207,7 @@ public class WordleManager : MonoBehaviour
                 emailInput.displayText.alpha = 1f;
                 nextInput.gameObject.GetComponent<Button>().isActive = false;
 
-                Debug.Log("All stages complete! Final result: " + finalResult);
+                
                 CanvasManager.instance.DesactivateHearts();
                 CanvasManager.instance.ClearUsedLetters();
                 panel.PlayPopOutSequence();
@@ -233,6 +233,7 @@ public class WordleManager : MonoBehaviour
         {
             Debug.Log("No more attempts left! Word was: " + targetWord);
             gameOver = true;
+            GameManager.instance.TriggerLose();
             return;
         }
 

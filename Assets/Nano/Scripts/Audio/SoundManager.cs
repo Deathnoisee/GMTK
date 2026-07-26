@@ -14,6 +14,8 @@ namespace SmallHedge.SoundManager
         private SoundType? currentMusic = null;
         private AudioClip lastPlayedClip = null; // tracks last clip to avoid immediate repeats
 
+        public bool isMainMenu = false;
+
         private void Awake()
         {
             if (!instance)
@@ -25,7 +27,13 @@ namespace SmallHedge.SoundManager
 
         private void Start()
         {
-            StartCoroutine(StartMusic());
+            if (!isMainMenu)
+            {
+
+                StartCoroutine(StartMusic());
+
+            }
+            
         }
 
         private void Update()

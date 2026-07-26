@@ -99,6 +99,8 @@ public class SurfController : MonoBehaviour
         {
             rb.linearVelocity = Vector2.zero;
             isDead = true;
+            obstacleSpawner.StopSpawningAndClearObstacles();
+            GameManager.instance.TriggerLose();
             Debug.Log("Game Over");
         }
     }

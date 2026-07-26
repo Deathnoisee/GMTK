@@ -107,8 +107,8 @@ public class MouseController : MonoBehaviour
             {
                 nextLevel.SetActive(true);
             }
-
-            this.gameObject.transform.parent.gameObject.SetActive(false);
+            GameManager.instance.TriggerWin();
+            
         }
     }
 

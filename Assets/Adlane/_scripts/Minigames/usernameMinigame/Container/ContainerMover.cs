@@ -15,6 +15,7 @@ public class ContainerMover : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        usernameManager.BeginGame();
     }
     private void FixedUpdate()
     {
@@ -30,7 +31,7 @@ public class ContainerMover : MonoBehaviour
         if (moveHorizontal != 0 && !started)
         {
             started = true;
-           usernameManager.BeginGame();
+          
         }
     }
 

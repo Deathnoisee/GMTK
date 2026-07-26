@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float timeRemaining = 300f; // 5:00 in seconds
+    [Header("Timer")]
+    public float startingTime = 300f; // 5:00 in seconds
+    public float timeRemaining;
     private bool timerRunning = true;
     public bool inMinigame = false;
     public static GameManager instance;
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public bool GameOver;
     public Panel userPanel;
+    public GameObject Gamejam;
 
     [Header("Win / Lose")]
     public GameObject winPanelObject;  // has a Panel component, auto pops in via OnEnable
@@ -26,21 +29,14 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        instance = this;
     }
 
     public bool gameOver = false;
 
     void Start()
     {
+        RestartGame();
         SetDefaultCursor();
     }
 
@@ -49,11 +45,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Timer has ended!");
         gameOver = true;
         TriggerLose();
-    }
-
-    public void TestClcick()
-    {
-        Debug.Log("Clicked");
     }
 
     public void SwictchGame(Button button)
@@ -99,10 +90,9 @@ public class GameManager : MonoBehaviour
         {
             Vector3 realMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D hit = Physics2D.OverlapPoint(realMousePos);
-            Debug.Log("Hit object: " + (hit != null ? hit.name : "none"));
+
             if (hit != null && hit.CompareTag("Button"))
             {
-                Debug.Log("Hit button");
                 Button button = hit.GetComponent<Button>();
                 if (button != null)
                 {
@@ -123,11 +113,12 @@ public class GameManager : MonoBehaviour
     public void Register()
     {
         userPanel.PlayPopOutSequence();
+        Gamejam.SetActive(true);
     }
 
     public void RestartGame()
     {
-        timeRemaining = 300f;
+        timeRemaining = startingTime; // now always matches whatever Start() used
         timerRunning = true;
         gameOver = false;
         resultHandled = false;
@@ -140,6 +131,7 @@ public class GameManager : MonoBehaviour
         resultHandled = true;
         win = true;
         gameOver = true;
+        SoundManager.StopMusic();
 
         CloseActivePanelsThen(() =>
         {
@@ -156,6 +148,7 @@ public class GameManager : MonoBehaviour
         resultHandled = true;
         win = false;
         gameOver = true;
+        SoundManager.StopMusic();
 
         CloseActivePanelsThen(() =>
         {
@@ -172,7 +165,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void CloseActivePanelsThen(System.Action onAllClosed)
     {
-        Panel[] activePanels = FindObjectsOfType<Panel>();
+        Panel[] activePanels = FindObjectsByType<Panel>(FindObjectsInactive.Exclude);
 
         System.Collections.Generic.List<Panel> toClose = new System.Collections.Generic.List<Panel>();
         foreach (Panel p in activePanels)

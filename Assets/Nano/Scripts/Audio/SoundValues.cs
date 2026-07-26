@@ -20,7 +20,10 @@ namespace SmallHedge.SoundManager
         yawn,
         powerOn,
         powerOff,
-        crying
+        crying,
+        running,
+        loosing,
+        winning
 
 
 

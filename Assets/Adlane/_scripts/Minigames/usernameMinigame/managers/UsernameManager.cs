@@ -287,8 +287,9 @@ public class UsernameManager : MonoBehaviour
         if (lettersManager != null)
             lettersManager.StopSpawning();
 
-        if (collectedText != null)
-            collectedText.text = "You are Dead Restart the game";
+        GameManager.instance.TriggerLose();
+
+      
     }
     public void RestartGame()
     {
