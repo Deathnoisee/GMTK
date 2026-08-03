@@ -127,6 +127,7 @@ public class GameManager : MonoBehaviour
     // Call this from wherever your win condition is detected (e.g. a minigame's Win())
     public void TriggerWin()
     {
+       
         if (resultHandled) return;
         resultHandled = true;
         win = true;

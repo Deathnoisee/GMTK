@@ -146,7 +146,9 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
-    void Start()
+  
+
+    private void Awake()
     {
         if (instance == null)
         {
@@ -156,6 +158,7 @@ public class CanvasManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     void Update()

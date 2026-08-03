@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5011445818642438531}
   - component: {fileID: 6205542693324518078}
   - component: {fileID: 2761787332806886202}
+  - component: {fileID: -4956999689093700653}
   m_Layer: 0
   m_Name: Winner
   m_TagString: Winner
@@ -140,6 +141,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.6003323, y: 2.8701348}
   m_EdgeRadius: 0
+--- !u!114 &-4956999689093700653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238025315088352840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf32775d99dd5346a9cbac67fce1ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
+  speed: 5
+  count: 0
+  countText: {fileID: 0}
 --- !u!1 &8592281714083845098
 GameObject:
   m_ObjectHideFlags: 0

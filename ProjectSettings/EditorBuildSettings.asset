@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Adlane/Scenes/MainMenu Scene.unity
+    path: Assets/Adlane/Scenes/MainMenu.unity
     guid: a0e4d85e2d89b5d4f9c3574ffc83ab1d
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity

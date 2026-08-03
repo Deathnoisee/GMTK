@@ -2310,7 +2310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5016518234708620307
 Transform:
   m_ObjectHideFlags: 0
@@ -6097,6 +6097,8 @@ MonoBehaviour:
     correctIsYes: 0
   - prompt: Only those who are not robots or Humans should Say not no
     correctIsYes: 1
+  myPanel: {fileID: 7372458864023469683}
+  nextLevel: {fileID: 0}
 --- !u!1 &8614651978082388547
 GameObject:
   m_ObjectHideFlags: 0
@@ -6342,3 +6344,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6105905318624520253, guid: f6c35af450f36ac4bad8bce6eaddb7ea, type: 3}
   m_PrefabInstance: {fileID: 6085860467862103743}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7372458864023469683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3613414807661648076, guid: f6c35af450f36ac4bad8bce6eaddb7ea, type: 3}
+  m_PrefabInstance: {fileID: 6085860467862103743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b2492e9bb7f77545b8fc67a5d5a2049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Panel

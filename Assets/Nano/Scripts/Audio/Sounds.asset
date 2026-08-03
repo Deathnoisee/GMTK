@@ -107,8 +107,10 @@ MonoBehaviour:
   - name: loosing
     volume: 1
     mixer: {fileID: 0}
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: b70c955052ad3b341b64a0757ef55066, type: 3}
   - name: winning
     volume: 1
     mixer: {fileID: 0}
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: 118e94f78afb67c4c80a043cfdfb403f, type: 3}

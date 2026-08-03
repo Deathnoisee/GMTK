@@ -15,6 +15,7 @@ public class ObstacleSpawner : MonoBehaviour
     public float difficultyRampDuration = 60f; // time (seconds) to go from easiest to hardest
 
     public SurfController surfController; // Reference to the SurfController script
+    public GameObject winnerButton;
 
     private float timer = 0f;
     private float elapsedSinceStart = 0f;
@@ -52,8 +53,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     public void SpawnWinner()
     {
-        GameObject winnerButoon = Instantiate(winner, transform.position, Quaternion.identity);
-        winnerButoon.transform.SetParent(transform);
+        winnerButton.SetActive(true);
     }
 
     /// <summary>
@@ -68,7 +68,8 @@ public class ObstacleSpawner : MonoBehaviour
 
     /// <summary>
     /// Same as StopSpawning, but also immediately destroys every obstacle
-    /// currently alive in the scene (all children of this spawner).
+    /// currently alive in the scene (all children of this spawner) — except
+    /// winnerButton, which must survive so SpawnWinner() can still activate it.
     /// </summary>
     public void StopSpawningAndClearObstacles()
     {
@@ -76,7 +77,16 @@ public class ObstacleSpawner : MonoBehaviour
 
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(transform.GetChild(i).gameObject);
+            Transform child = transform.GetChild(i);
+
+            // Skip the winner button if it's parented under this spawner —
+            // SpawnWinner() needs it to still exist right after this call.
+            if (winnerButton != null && child == winnerButton.transform)
+            {
+                continue;
+            }
+
+            Destroy(child.gameObject);
         }
     }
 

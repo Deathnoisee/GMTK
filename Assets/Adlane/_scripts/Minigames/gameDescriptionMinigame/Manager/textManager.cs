@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -13,24 +12,40 @@ public class textManager : MonoBehaviour
     [Header("Prompt")]
     [TextArea]
     [SerializeField] private string prompt;
+
+    [Header("Win Flow")]
+    public Panel myPanel;        // pops out when this minigame is completed
+    public GameObject nextLevel; // activated once myPanel finishes popping out
+
     private string lastCheckedText = "";
     public string[] targetWords;
     public string[] typedWords;
 
-    // nano
+    private bool isDead = false;
+    private bool completed = false;
+
+    private void Start()
+    {
+        startGame();
+    }
+
     public void startGame()
     {
+        isDead = false;
+        completed = false;
+
         if (customInputField != null)
             customInputField.gameObject.SetActive(true);
-
         if (collectedText != null)
             collectedText.text = "";
-
         if (promptText != null)
             promptText.text = prompt;
 
         lastCheckedText = "";
+
+        CanvasManager.instance.SpawnHeart(health);
     }
+
     public void SetPrompt(string newPrompt)
     {
         prompt = newPrompt;
@@ -40,6 +55,7 @@ public class textManager : MonoBehaviour
 
     private void Update()
     {
+        if (isDead || completed) return;
         if (customInputField == null || customInputField.displayText == null)
             return;
 
@@ -81,23 +97,49 @@ public class textManager : MonoBehaviour
 
     private void damage()
     {
+        if (isDead) return;
+
+        health--;
+        CanvasManager.instance.UpdateheartUI();
+
+        if (CameraShake.instance != null)
+            CameraShake.instance.ShakeMedium();
+
+        Debug.Log("Mistake made");
+
         if (health <= 0)
         {
+            isDead = true;
             Debug.Log("Game Over");
-            customInputField.gameObject.SetActive(false);
-            return;
+
+            if (customInputField != null)
+                customInputField.gameObject.SetActive(false);
+
+            GameManager.instance.TriggerLose();
         }
-        Debug.Log("Mistake made");
-        health--;
     }
-    // ak taerff lfilm nano
+
     private void Win()
     {
-        if (health <= 0)
-        {
-            Debug.Log("Game Over");
-            return;
-        }
+        if (completed) return;
+        completed = true;
+
         Debug.Log("You are a human!");
+
+        if (customInputField != null)
+            customInputField.gameObject.SetActive(false);
+
+        CanvasManager.instance.DesactivateHearts();
+
+        myPanel.PlayPopOutSequence(() =>
+        {
+            if (nextLevel != null)
+            {
+                nextLevel.SetActive(true);
+            }
+
+            GameManager.instance.TriggerWin();
+           
+        });
     }
 }

@@ -64,7 +64,9 @@ public class SurfController : MonoBehaviour
         if (completionCount >= completionTarget)
         {
             completionCount = completionTarget;
+            obstacleSpawner.StopSpawningAndClearObstacles();
             obstacleSpawner.SpawnWinner();
+            Debug.Log("SpawnWinner");
         }
     }
 
@@ -99,7 +101,7 @@ public class SurfController : MonoBehaviour
         {
             rb.linearVelocity = Vector2.zero;
             isDead = true;
-            obstacleSpawner.StopSpawningAndClearObstacles();
+            obstacleSpawner.StopSpawning();
             GameManager.instance.TriggerLose();
             Debug.Log("Game Over");
         }

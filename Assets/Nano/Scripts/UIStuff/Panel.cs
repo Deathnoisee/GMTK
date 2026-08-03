@@ -163,7 +163,8 @@ public class Panel : MonoBehaviour
     {
         if (isPoppingOut)
         {
-            if (debugLogging) Debug.Log($"[Panel:{name}] PlayPopOutSequence called again while already popping out — ignoring duplicate call");
+            if (debugLogging) Debug.Log($"[Panel:{name}] PlayPopOutSequence called again while already popping out — invoking onComplete immediately since it's already handled");
+            onComplete?.Invoke();
             return;
         }
 
