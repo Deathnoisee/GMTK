@@ -68,7 +68,13 @@ public class textManager : MonoBehaviour
         if (typedText == lastCheckedText)
             return;
 
+       
+        bool textShrank = typedText.Length < lastCheckedText.Length;
         lastCheckedText = typedText;
+
+        if (textShrank)
+            return;
+
         CompareText(typedText);
     }
 
@@ -99,8 +105,8 @@ public class textManager : MonoBehaviour
     {
         if (isDead) return;
 
-        health--;
         CanvasManager.instance.UpdateheartUI();
+        health--;
 
         if (CameraShake.instance != null)
             CameraShake.instance.ShakeMedium();
@@ -137,9 +143,12 @@ public class textManager : MonoBehaviour
             {
                 nextLevel.SetActive(true);
             }
+            else
+            {
 
-            GameManager.instance.TriggerWin();
-           
+                GameManager.instance.TriggerWin();
+            }
+
         });
     }
 }

@@ -29,7 +29,16 @@ public class CanvasManager : MonoBehaviour
             Debug.Log("No hearts left to remove");
             return;
         }
-        HearthGroup.transform.GetChild(lastIndex).gameObject.GetComponent<Heart>().PlayPopOut();
+
+        Transform heartToRemove = HearthGroup.transform.GetChild(lastIndex);
+
+        // Unparent immediately so HearthGroup.transform.childCount updates right away —
+        // otherwise a second UpdateheartUI() call before the pop-out animation finishes
+        // would grab this SAME heart again instead of a fresh one, since it's still
+        // technically a child (and still alive) until Destroy() runs at the end of the tween.
+        heartToRemove.SetParent(null);
+
+        heartToRemove.gameObject.GetComponent<Heart>().PlayPopOut();
     }
 
     public void GameOverPanel()
@@ -120,6 +129,7 @@ public class CanvasManager : MonoBehaviour
         }
 
         completionScrollbar.gameObject.SetActive(true);
+        completionScrollbar.size = 1f; // handle size, purely cosmetic here
         completionScrollbar.value = 0f;
     }
 
@@ -146,9 +156,7 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
-  
-
-    private void Awake()
+    void Awake()
     {
         if (instance == null)
         {
@@ -158,11 +166,7 @@ public class CanvasManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
-    void Update()
-    {
-
-    }
+    
 }
