@@ -695,7 +695,7 @@ MonoBehaviour:
     - nuclear
     tiles: []
     wordLength: 7
-  attemptsPerStage: 5
+  attemptsPerStage: 8
   targetWord: 
   finalResult: 
   panel: {fileID: 1776116463}
@@ -2356,7 +2356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7787794405612277979, guid: 51ea3b55bd8f6284ca9bb76b30d2832a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8373167707682195244, guid: 51ea3b55bd8f6284ca9bb76b30d2832a, type: 3}
       propertyPath: m_LocalPosition.x
