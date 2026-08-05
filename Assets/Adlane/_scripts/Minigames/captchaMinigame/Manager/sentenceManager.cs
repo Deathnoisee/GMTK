@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using TMPro;
 using UnityEngine;
 
@@ -57,10 +58,12 @@ public class sentenceManager : MonoBehaviour
 
         if (correct)
         {
+            SoundManager.PlaySound(sound: SoundType.right);
             NextLevel();
         }
         else
         {
+            SoundManager.PlaySound(sound: SoundType.error);
             Lose();
         }
     }

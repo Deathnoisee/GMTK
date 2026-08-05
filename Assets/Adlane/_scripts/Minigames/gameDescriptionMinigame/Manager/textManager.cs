@@ -1,3 +1,4 @@
+using SmallHedge.SoundManager;
 using TMPro;
 using UnityEngine;
 
@@ -106,6 +107,7 @@ public class textManager : MonoBehaviour
         if (isDead) return;
 
         CanvasManager.instance.UpdateheartUI();
+        SoundManager.PlaySound(SoundType.error);
         health--;
 
         if (CameraShake.instance != null)
@@ -129,6 +131,7 @@ public class textManager : MonoBehaviour
     {
         if (completed) return;
         completed = true;
+        SoundManager.PlaySound(SoundType.right);
 
         Debug.Log("You are a human!");
 
