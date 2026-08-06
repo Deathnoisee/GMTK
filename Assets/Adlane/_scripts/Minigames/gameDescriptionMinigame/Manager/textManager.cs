@@ -27,6 +27,7 @@ public class textManager : MonoBehaviour
 
     private void Start()
     {
+        completed=false;
         startGame();
     }
 

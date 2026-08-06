@@ -5,6 +5,13 @@ public class Button : MonoBehaviour
     public UnityEvent onClick;
     public bool isActive;
     public bool specialButton =false;
+    public bool highlight = false;  
+
+
+    void Highlight()
+    {
+
+    }
 
     private void Update()
     {

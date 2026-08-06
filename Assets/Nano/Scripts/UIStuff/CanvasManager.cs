@@ -129,7 +129,6 @@ public class CanvasManager : MonoBehaviour
         }
 
         completionScrollbar.gameObject.SetActive(true);
-        completionScrollbar.size = 1f; // handle size, purely cosmetic here
         completionScrollbar.value = 0f;
     }
 

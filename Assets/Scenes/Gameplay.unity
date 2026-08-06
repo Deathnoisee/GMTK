@@ -1923,7 +1923,7 @@ Animator:
   m_GameObject: {fileID: 443105137}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4ffcef637f8120940b2baeccb97336b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9a0a3dd7ac2bf3c4b9ce3c9b772e2e58, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2328,7 +2328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2589982537767828206, guid: 51ea3b55bd8f6284ca9bb76b30d2832a, type: 3}
       propertyPath: prompt
-      value: submit your game before
+      value: 'hello '
       objectReference: {fileID: 0}
     - target: {fileID: 2589982537767828206, guid: 51ea3b55bd8f6284ca9bb76b30d2832a, type: 3}
       propertyPath: myPanel
@@ -2356,7 +2356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7787794405612277979, guid: 51ea3b55bd8f6284ca9bb76b30d2832a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8373167707682195244, guid: 51ea3b55bd8f6284ca9bb76b30d2832a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2941,7 +2941,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_MaskInteraction: 1
   m_Sprite: {fileID: 21300000, guid: 6c8a07237a459054a811dc892aee05cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3129,7 +3129,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 935894707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.949}
+  m_AnchorMin: {x: 0, y: 0.95}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -56}
   m_SizeDelta: {x: 20, y: 20}
@@ -3932,6 +3932,7 @@ MonoBehaviour:
         m_CallState: 2
   isActive: 0
   specialButton: 1
+  highlight: 0
 --- !u!212 &944522973
 SpriteRenderer:
   serializedVersion: 3
@@ -4982,8 +4983,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -233.89824, y: -137.55267}
-  m_SizeDelta: {x: 188.2783, y: 28.5}
+  m_AnchoredPosition: {x: -351.45837, y: -137.55267}
+  m_SizeDelta: {x: 423.3985, y: 28.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1249519505
 MonoBehaviour:
@@ -5762,7 +5763,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 737428866}
   m_Direction: 3
   m_Value: 0
-  m_Size: 0.051
+  m_Size: 0.05
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7874,6 +7875,7 @@ MonoBehaviour:
         m_CallState: 2
   isActive: 1
   specialButton: 0
+  highlight: 0
 --- !u!1 &2081810769
 GameObject:
   m_ObjectHideFlags: 0
@@ -8088,8 +8090,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 8.8, y: -261.01}
-  m_SizeDelta: {x: 481.1115, y: 160.97101}
+  m_AnchoredPosition: {x: 8.8, y: -275.48648}
+  m_SizeDelta: {x: 481.1115, y: 189.924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086709989
 MonoBehaviour:
@@ -8137,7 +8139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3614188708640995542, guid: abb0c886465ee8141b4413f902190458, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4281479730
+      value: 3289650
       objectReference: {fileID: 0}
     - target: {fileID: 3629669211409526347, guid: abb0c886465ee8141b4413f902190458, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

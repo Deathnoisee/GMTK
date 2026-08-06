@@ -221,6 +221,7 @@ public class WordleManager : MonoBehaviour
         }
         else
         {
+            CanvasManager.instance.UpdateheartUI();
             SoundManager.PlaySound(SoundType.error);
             CameraShake.instance.ShakeMedium();
         }
@@ -273,7 +274,7 @@ public class WordleManager : MonoBehaviour
                 }
             }
 
-            CanvasManager.instance.UpdateheartUI();
+            
 
             if (found)
             {
